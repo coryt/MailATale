@@ -1,0 +1,170 @@
+﻿@import "variables";
+
+section.subscription
+{
+    .heading-alt,
+	.heading
+    {
+        position: relative;
+        height: 120px;
+        padding: 19px;
+
+        p
+        {
+            width: 600px;
+            font-size: 16px;
+        }
+
+        .penguin
+        {
+            background: url(../img/howitworks/Penguin.png) no-repeat;
+            position: absolute;
+            left: 600px;
+            top: 80px;
+            height: 100px;
+            width: 265px;
+        }
+    }
+
+    .details
+    {
+        height: auto;
+
+        .subscription-info
+        {
+            text-align: center;
+            margin: 0;
+            padding: 5px 0 20px;
+            background-color: #f8fcfe;
+            position: relative;
+
+			.box-selected-basic,
+			.box-selected-plus {
+				background: url(../img/signup/Checkmark.png) no-repeat;
+				height: 10px;
+				width: 13px;
+			}
+
+            .price
+            {
+                color: @matorange;
+                width: 92px;
+                margin: 15px auto;
+                text-align: right;
+
+                span
+                {
+                    font-size: 30px;
+                    display: block;
+                }
+            }
+
+            .calculate-shipping
+            {
+                margin-bottom: 32px;
+                display: block;
+                cursor: pointer;
+            }
+
+            .shipping-fee
+            {
+                font-size: 12px;
+                color: @gray;
+            }
+
+            .modal
+            {
+                background: url(../img/howitworks/ShippingPop.png) no-repeat;
+                width: 229px;
+                height: 177px;
+                border: none;
+                border-radius: inherit;
+                box-shadow: none;
+                position: absolute;
+                top: 230px;
+                left: 400px;
+                text-align: left;
+                overflow: hidden;
+                outline: 0;
+
+                .modal-header
+                {
+                    border: none;
+                    padding: 2px 15px;
+                }
+
+                .modal-body
+                {
+                    p
+                    {
+                        color: @matblue;
+                    }
+
+                    input
+                    {
+                        width: 80px;
+                        margin-bottom: 0;
+                    }
+
+                    div.shipping-result
+                    {
+                        color: @gray;
+
+                        span.fee
+                        {
+                            color: @matblue;
+                        }
+                    }
+                }
+            }
+
+            .free-shipping
+            {
+                background: url(../img/howitworks/White_Shipping.png) no-repeat;
+                height: 62px;
+                width: 222px;
+                margin: 10px auto;
+            }
+
+            ul
+            {
+                margin-top: 10px;
+                color: @matblue;
+
+                li:first-child
+                {
+                    margin: 10px 0;
+                    color: @matgold;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+
+                li
+                {
+                    margin: 5px 0;
+                }
+            }
+        }
+
+        .separator
+        {
+            margin-left: 0;
+            width: auto;
+            padding: 9px 45px;
+            background-color: #f8fcfe;
+        }
+    }
+
+	.frequency-alt,
+	.frequency {
+		height: 50px;
+		color: @matblue;
+		font-size: 14px;
+		line-height: 3.75;
+		input {
+			margin: 0;
+			width: 25px;
+			height: 22px;
+		}
+	}
+}

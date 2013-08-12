@@ -1,0 +1,27 @@
+﻿@using System.Web.Optimization
+@using MAT.Web.Areas.Admin.Models
+@using MAT.Core.Models.Account
+@using MvcContrib.UI.Grid
+@model UserDetailsViewModel
+@{
+    ViewBag.Title = "Admin - " + Model.User.Id;
+}
+@section pageribbon {
+    <div class="ribbon">
+        <h1>Manage Users</h1>
+    </div>
+}
+
+<h1 style="text-align: center">@Model.User.Id</h1>
+
+@Html.DisplayFor(m => m.User)
+
+<h2 style="text-align: center">User Subscriptions</h2>
+
+@Html.Grid(Model.Subscriptions).Columns(column => {
+    column.For(m => m.Id).Named("ID");
+    column.For(m => m.StartedOn);
+    column.For(m => m.SubscriptionStatus).Named("Status");
+    column.For(m => m.DeliveryFrequency).Named("Frequency");
+    column.For(m => Html.ActionLink("Details", "Details", "Subscriptions", new { id = m.Id }, null));
+}).Attributes(@class => "table table-striped table-condensed")

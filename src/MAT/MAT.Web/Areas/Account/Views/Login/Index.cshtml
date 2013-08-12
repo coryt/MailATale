@@ -1,0 +1,29 @@
+﻿@model LogOnModel
+@{
+    ViewBag.Title = "Log in";
+}
+@section pageribbon {
+    <div class="ribbon blue down">
+        <h1>login</h1>
+    </div>
+}
+@section Scripts {
+}
+<div class="row">
+    <div class="span4 offset4 well">
+        @if (!string.IsNullOrEmpty(Model.DisplayMessage))
+        {
+            <div class="alert alert-error">
+                <a class="close" data-dismiss="alert" href="#">×</a><span>@Model.DisplayMessage</span>
+            </div>
+        }
+        @using (Html.BeginForm("Index", "Login", new { area = "Account", ViewBag.ReturnUrl }, FormMethod.Post))
+        {
+            @Html.TextBoxFor(m => m.Login, new { @class = "span4", @placeholder = "Email" })
+            @Html.PasswordFor(m => m.Password, new { @class = "span4", @placeholder = "Password" })
+            <p class="help-block pull-right">@Html.ActionLink("Forgot your password?", "forgotpassword", "login", new { area = "Account" }, new { })</p>
+
+            <button type="submit" name="submit" class="btn btn-info btn-block">Sign in</button>
+        }
+    </div>
+</div>

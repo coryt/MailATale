@@ -1,0 +1,42 @@
+﻿@using MAT.Web.Helpers
+@model MvcContrib.Pagination.IPagination
+
+@{
+    var first = "« first";
+    var prev = "‹ prev";
+    var next = "next ›";
+    var last = "last »";
+}
+
+<div class="row">
+    <div class="span12">
+        <div class="pagination pagination-centered well-small" style="margin-top: 0">
+            <div class="pull-left">Showing <strong>@Model.FirstItem - @Model.LastItem</strong> of <strong>@Model.TotalItems</strong></div>
+            <ul>
+                @if (Model.HasPreviousPage)
+                {
+                    <li>@Html.PageLink(1, first)</li>
+                    <li>@Html.PageLink(Model.PageNumber - 1, prev)</li>
+                }
+                else
+                {        
+                    <li class="disabled">@Html.PageLink(Model.PageNumber, first)</li>
+                    <li class="disabled">@Html.PageLink(Model.PageNumber, prev)</li>
+                }
+
+                @if (Model.HasNextPage)
+                {
+                    <li>@Html.PageLink(Model.PageNumber + 1, next)</li>
+                    <li>@Html.PageLink(Model.TotalPages, last)</li>
+                }
+                else
+                {
+                    <li class="disabled">@Html.PageLink(Model.PageNumber, next)</li>
+                    <li class="disabled">@Html.PageLink(Model.PageNumber, last)</li>
+                }
+            </ul>
+            <div class="pull-right">Page <strong>@Model.PageNumber</strong> of <strong>@Model.TotalPages</strong></div>
+        </div>
+    </div>
+</div>
+

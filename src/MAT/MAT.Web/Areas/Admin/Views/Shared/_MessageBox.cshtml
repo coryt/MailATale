@@ -1,0 +1,39 @@
+﻿@using MAT.Web.Areas.Admin.Controllers
+@model ViewInformation
+
+@{
+    
+    ViewInformation viewInformation = new ViewInformation();
+    viewInformation.ReturnMessage = Model.ReturnMessage;
+    viewInformation.ReturnStatus = Model.ReturnStatus;
+        
+    if (viewInformation.ReturnMessage.Count() > 0)
+    {
+        <div style="padding: 10px 10px 10px 0px; width:90%">
+        @if (viewInformation.ReturnStatus == true)
+        {
+            <div style="background-color: Scrollbar; border: solid 1px black; color: black; padding: 15px 15px 15px 15px">     
+            @foreach (var message in viewInformation.ReturnMessage)
+            {
+                <text>@Html.Raw(message)</text>
+                <br />
+            }
+            </div> 
+        }
+        else
+        {        
+            <div style="background-color: #f4eded; border: solid 1px #d19090; color: #762933; padding: 15px 15px 15px 15px">   
+            @foreach (var message in viewInformation.ReturnMessage)
+            {
+                <text>@Html.Raw(message)</text>
+                <br />
+            } 
+            </div>
+        }
+        </div>
+    }
+    
+}
+
+
+       

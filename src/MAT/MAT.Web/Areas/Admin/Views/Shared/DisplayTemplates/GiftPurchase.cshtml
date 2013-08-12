@@ -1,0 +1,118 @@
+﻿@using MAT.Core.Models.Account
+@using MAT.Core.Models.Enumerations
+@using MAT.Core.Models.Gift
+@using MAT.Core.Models.Subscription
+@using MAT.Web.Areas.Admin.Models;
+@using MvcContrib.UI.Grid
+@model GiftPurchase
+
+@{
+    int rowIndex = 0;
+    Func<string> rowClass = () => rowIndex++ % 2 == 0 ? "row row-shaded well-small" : "row well-small";
+}
+
+<div class="@rowClass()">
+    <strong class="span3">ID</strong>
+    <span>@Model.Id</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Purchased</strong>
+    <span class="label @(Model.Purchased ? "label-success" : "label-warning")">@(Model.Purchased ? "Yes" : "No")</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Date Purchased</strong>
+    <span>@Model.DatePurchased</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Redeem ID</strong>
+    <span>@Model.RedeemId</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Sender E-mail</strong>
+    <span>@Model.SenderEmail</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Sender Name</strong>
+    <span>@Model.SenderName</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Personal Message</strong>
+    <span>@Model.PersonalMessage</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Send Gift Notice On</strong>
+    <span>@Model.SendGiftNoticeOn</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Recipient Name</strong>
+    <span>@Model.RecipientName</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Recipient E-mail</strong>
+    <span>@Model.RecipientEmail</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Recipient Province</strong>
+    <span>@Model.RecipientProvince</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Recipient Reader Name</strong>
+    <span>@Model.RecipientReaderName</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Recipient Reader Gender</strong>
+    <span>@Model.RecipientReaderGender</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Subscription Length</strong>
+    <span>@Model.SubscriptionLength month@(Model.SubscriptionLength != 1 ? "s" : "")</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Subscription Product</strong>
+    <span>@(Model.SubscriptionProduct != null ? Model.SubscriptionProduct.Name : "")</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Redeemed</strong>
+    <span class="label @(Model.Redeemed ? "label-success" : "label-warning")">@(Model.Redeemed ? "Yes" : "No")</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Date Redeemed</strong>
+    <span>@Model.DateRedeemed</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Redeemed By User</strong>
+    @if (!string.IsNullOrWhiteSpace(Model.RedeemedByUserId))
+    {
+        <span>@Html.ActionLink(Model.RedeemedByUserId, "Details", "Users", new { id = Model.RedeemedByUserId }, null)</span>
+    }
+    else
+    {
+        <span></span>
+    }
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Gift Notice Sent</strong>
+    <span class="label @(Model.GiftNoticeSent ? "label-success" : "label-warning")">@(Model.GiftNoticeSent ? "Yes" : "No")</span>
+</div>
+
+    
+
+

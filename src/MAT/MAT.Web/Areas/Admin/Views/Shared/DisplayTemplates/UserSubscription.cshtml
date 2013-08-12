@@ -1,0 +1,76 @@
+﻿@using MAT.Core.Models.Account
+@using MAT.Core.Models.Enumerations
+@using MAT.Core.Models.Subscription
+@model UserSubscription
+
+@{
+    int rowIndex = 0;
+    Func<string> rowClass = () => rowIndex++ % 2 == 0 ? "row row-shaded well-small" : "row well-small";
+}
+
+<div class="@rowClass()">
+    <strong class="span3">User ID</strong>
+    <span>@Html.ActionLink(Model.UserId, "Details", "Users", new { id = Model.UserId }, null)</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Status</strong>
+    @{
+        var statusClass = "label-info";
+        switch (Model.SubscriptionStatus)
+        {
+            case SubscriptionStatus.Active:
+                statusClass = "label-success";
+                break;
+            case SubscriptionStatus.Cancelled:
+                statusClass = "label-inverse";
+                break;
+            case SubscriptionStatus.Inactive:
+            case SubscriptionStatus.PendingActivation:
+                statusClass = "label-warning";
+                break;
+            case SubscriptionStatus.OnHold:
+                statusClass = "label-important";
+                break;
+        }
+    }
+    <span class="label @statusClass">@Model.SubscriptionStatus</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Started On</strong>
+    <span>@Model.StartedOn</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Delivery Frequency</strong>
+    <span>@Model.DeliveryFrequency</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Last Billed On</strong>
+    <span>@Model.LastBilledOn</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Shipping Address</strong>
+    <div class="span3">
+        @Html.DisplayFor(m => m.ShippingAddress)
+    </div>
+</div>
+
+
+<h2 style="text-align:center">Reader</h2>
+
+@if (Model.Reader == null)
+{
+    <em>No reader information.</em>
+}
+else
+{
+    @Html.DisplayFor(m => m.Reader)
+}
+
+
+
+

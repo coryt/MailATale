@@ -1,0 +1,12 @@
+@model SignUpModel
+
+<section data-bind="fadeVisible:order.account.errors().length < 3">
+    <h2>Billing Information</h2>
+
+    @Html.EditorFor(m => m.Payment)
+
+    <div data-bind="fadeVisible:!order.payment.isValid()" class="section-error">
+        Please complete all required fields above to continue
+    </div>
+    <hr class="down" />
+</section>

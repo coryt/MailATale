@@ -1,0 +1,42 @@
+﻿@model MAT.Core.Models.Site.SiteConfig
+
+<div class="control-group">
+    @Html.LabelFor(m => m.Title, "Title", new {@class = "control-label"})
+    <div class="controls">
+        @Html.TextBoxFor(m => m.Title, new {@class = "input-large"})
+        @Html.ValidationMessageFor(m => m.Title)
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(m => m.Subtitle, "Subtitle", new {@class = "control-label"})
+    <div class="controls">
+        @Html.TextBoxFor(m => m.Subtitle, new {@class = "input-large"})
+        @Html.ValidationMessageFor(m => m.Subtitle)
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(m => m.MetaDescription, new {@class = "control-label"})
+    <div class="controls">
+        @Html.TextBoxFor(m => m.MetaDescription, new {@class = "input-medium"})
+        @Html.ValidationMessageFor(m => m.MetaDescription)
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(m => m.AdminEmail, "Admin Email", new {@class = "control-label"})
+    <div class="controls">
+        @Html.TextBoxFor(m => m.AdminEmail, new {@class = "input-small"})
+        @Html.ValidationMessageFor(m => m.AdminEmail)
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(m => m.GoogleAnalyticsKey, new {@class = "control-label"})
+    <div class="controls">
+        @Html.TextBoxFor(m => m.GoogleAnalyticsKey, new {@class = "input-large"})
+        @Html.ValidationMessageFor(m => m.GoogleAnalyticsKey)
+    </div>
+</div>
+<div class="control-group">
+    <div class="controls">
+        
+    </div>
+</div>

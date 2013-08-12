@@ -1,0 +1,40 @@
+﻿@model GiftPurchaseModel
+@{
+    ViewBag.Title = "Gift";
+}
+@section styles
+{
+    @Styles.Render("~/assets/css/site.css")
+    @Styles.Render("~/assets/css/gift.css")
+
+    <style>
+    form.signup{
+	    margin-top: -20px;
+    }
+    </style>
+}
+@section Scripts {
+    <script type="text/javascript">
+        $().ready(function() {
+            MAT.Lists = {
+                genders: @Html.RawJson(ViewBag.Genders as SelectList),
+                provinces: @Html.RawJson(ViewBag.Provinces as SelectList)
+                };
+            MAT.Gift.Start(@Html.RawJson(Model));
+            $('#dp3').datepicker('setValue', new Date());
+        });
+    </script>
+}
+@section pageribbon {
+    <div class="ribbon gift">
+        <span class="signup"><a href="@Url.Action("index", "signup", new { area = "" })" title="Sign Up Here!">sign up here!</a></span>
+    </div>
+}
+
+<div class="notifier"></div>
+@using (Html.BeginForm("index", "gift", FormMethod.Post, new { id = "signupform", @class = "signup" }))
+{
+    Html.RenderPartial("_GiftSelection");
+    Html.RenderPartial("_GiftPayment");
+    Html.RenderPartial("_GiftOrderSummary");
+}

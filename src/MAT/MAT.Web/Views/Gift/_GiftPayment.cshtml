@@ -1,0 +1,25 @@
+﻿@model GiftPurchaseModel
+
+<fieldset class="well" data-bind="fadeVisible: order.Lines()[0].recipient.isValid()">
+    <legend class="low">2 Your billing information</legend>
+    <h2>Your Information</h2>
+    <div class="control-group">
+        @Html.LabelFor(m => m.FullName, "What is your {0}?", new { @class = "control-label" }, "full name")
+        <div class="controls">
+            @Html.TextBoxFor(m => m.FullName, new { @class = "input-large", placeholder = "first & last name", data_bind = "value: order.fullName" })
+        </div>
+    </div>
+    <div class="control-group">
+        @Html.LabelFor(m => m.Email, "What is your {0}?", new { @class = "control-label" }, "email")
+        <div class="controls">
+            @Html.TextBoxFor(m => m.Email, new { @class = "input-large", placeholder = "example@email.com", data_bind = "value: order.email" })
+        </div>
+    </div>
+
+    <section>
+        <h2>Billing Information</h2>
+        @Html.EditorFor(m => m.PaymentInfo)
+        @Html.EditorFor(m=>m.BillingAddress)
+        <hr class="down" />
+    </section>
+</fieldset>

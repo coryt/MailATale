@@ -1,0 +1,62 @@
+﻿@using System.Web.Optimization
+@using MAT.Web.Areas.Admin.Controllers
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.BaseClass = "account";
+
+    var controller = Html.ViewContext.Controller.GetType();
+    Func<Type, string> navClass = t => t == controller ? "active" : "";
+}
+@section styles
+{
+    @Styles.Render("~/assets/css/bootstrap.css")
+    @Styles.Render("~/assets/css/site.css")
+    @Styles.Render("~/assets/css/admin.css")
+    @RenderSection("styles", required: false)
+}
+
+@section scripts {
+    @RenderSection("scripts", required: false)
+}
+
+@RenderSection("pageribbon", false)
+
+<div class="row">
+    <div class="span12">    
+        <div class="well-small">
+            @{
+                var controllerName = Html.ViewContext.RouteData.Values["controller"].ToString();
+                var action = (Html.ViewContext.RouteData.Values["action"] ?? "Index").ToString().Trim().ToLower();
+                var linkText = (controller == typeof(DefaultController) ? "Site Configuration" : controllerName);
+            }
+            <ul class="breadcrumb" style="margin-bottom: 0">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="@Url.Action("Index")">
+                        @linkText                        
+                    </a>
+                    <span class="caret"></span>
+                    <ul class="dropdown-menu">
+                        <li style="display: block">@Html.ActionLink("Site Configuration", "Index", "Default")</li>
+                        <li style="display: block">@Html.ActionLink("Users", "Index", "Users")</li>
+                        <li style="display: block">@Html.ActionLink("Subscriptions", "Index", "Subscriptions")</li>
+                        <li style="display: block">@Html.ActionLink("Orders", "Index", "Orders")</li>
+                    </ul>
+                    @if (action == "details")
+                    {
+                        <span class="divider">/</span>
+                    }
+                </li>
+                @if (action == "details")
+                {
+                    <li class="active">@Html.ViewContext.RouteData.Values["id"]</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+        @RenderBody()
+    </div>
+</div>

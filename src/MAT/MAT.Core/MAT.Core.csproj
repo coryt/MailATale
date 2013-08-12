@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B60FF3CC-0F5D-43A5-A4E7-DB31DDEB2037}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MAT.Core</RootNamespace>
+    <AssemblyName>MAT.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.1.0\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions">
+      <HintPath>..\packages\DataAnnotationsExtensions.1.1.0.0\lib\NETFramework40\DataAnnotationsExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Esent.Interop">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\Esent.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=3.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentValidation.3.4.6.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\FSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoAPI">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\ICSharpCode.NRefactory.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Spatial.NTS">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\Lucene.Net.Contrib.Spatial.NTS.dll</HintPath>
+    </Reference>
+    <Reference Include="Mandrill.API">
+      <HintPath>..\packages\Mandrill.API.0.0.2\lib\net40\Mandrill.API.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc">
+      <HintPath>..\packages\Mvc2Futures.2.0.50217.0\lib\Microsoft.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib">
+      <HintPath>..\packages\MvcContrib.2.0.95.0\lib\MvcContrib.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.9\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PowerCollections">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\PowerCollections.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Abstractions">
+      <HintPath>..\packages\RavenDB.Client.1.2.2085-Unstable\lib\net40\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Backup">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\Raven.Backup.exe</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight">
+      <HintPath>..\packages\RavenDB.Client.1.2.2085-Unstable\lib\net40\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Database">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\Raven.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Smuggler">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\Raven.Smuggler.exe</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=104.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RestSharp.104.0\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Spatial4n.Core.NTS">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\Spatial4n.Core.NTS.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\RavenWebController.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\GridSortOptionsExtensions.cs" />
+    <Compile Include="Extensions\RavenQueryableExtensions.cs" />
+    <Compile Include="Extensions\XmlResult.cs" />
+    <Compile Include="InputModels\AccountSettingsModel.cs" />
+    <Compile Include="InputModels\AddressModel.cs" />
+    <Compile Include="InputModels\ChangeAccountModel.cs" />
+    <Compile Include="InputModels\ContactModel.cs" />
+    <Compile Include="InputModels\GiftPaymentRecipientModel.cs" />
+    <Compile Include="InputModels\GiftPurchaseLineItem.cs" />
+    <Compile Include="InputModels\GiftPurchaseModel.cs" />
+    <Compile Include="InputModels\GiftRecipientModel.cs" />
+    <Compile Include="InputModels\OrderData.cs" />
+    <Compile Include="InputModels\OrderLineItem.cs" />
+    <Compile Include="InputModels\PreferenceQuestionAnswerModel.cs" />
+    <Compile Include="InputModels\ReaderModel.cs" />
+    <Compile Include="InputModels\PaymentInfoModel.cs" />
+    <Compile Include="InputModels\ResetPasswordModel.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="InputModels\SignUpLineItem.cs" />
+    <Compile Include="InputModels\SignUpModel.cs" />
+    <Compile Include="Mailers\IUserMailer.cs" />
+    <Compile Include="Mailers\UserMailer.cs" />
+    <Compile Include="Models\Account\AccountRecovery.cs" />
+    <Compile Include="Models\LazyRavenQueryablePagination.cs" />
+    <Compile Include="Models\Enumerations\AddressTypes.cs" />
+    <Compile Include="Models\Enumerations\GradeLevel.cs" />
+    <Compile Include="Models\Enumerations\Province.cs" />
+    <Compile Include="Models\Enumerations\ReadingLevel.cs" />
+    <Compile Include="InputModels\RegisterAccountModel.cs" />
+    <Compile Include="InputModels\ChangePasswordModel.cs" />
+    <Compile Include="InputModels\LogOnModel.cs" />
+    <Compile Include="Models\Account\Address.cs" />
+    <Compile Include="Models\Enumerations\AgeGroups.cs" />
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\Enumerations\BookThemes.cs" />
+    <Compile Include="Models\Enumerations\DeliveryFrequency.cs" />
+    <Compile Include="Models\Enumerations\Enumeration.cs" />
+    <Compile Include="Models\Enumerations\Gender.cs" />
+    <Compile Include="Models\Enumerations\Relationships.cs" />
+    <Compile Include="Models\Gift\GiftPurchase.cs" />
+    <Compile Include="Models\Gift\GiftOrder.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\PaginationDefaults.cs" />
+    <Compile Include="Models\ShippingAreas.cs" />
+    <Compile Include="Models\ShippingRate.cs" />
+    <Compile Include="Models\Site\EnvironmentConfiguration.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\SignUp\SubscriptionOrder.cs" />
+    <Compile Include="Models\SignUp\OrderStatuses.cs" />
+    <Compile Include="Models\Subscription\PackageHistory.cs" />
+    <Compile Include="Models\Subscription\PackageMigrationInfo.cs" />
+    <Compile Include="Models\PaymentResult.cs" />
+    <Compile Include="Models\Account\PreferenceQuestion.cs" />
+    <Compile Include="Models\Account\PreferenceQuestionGroup.cs" />
+    <Compile Include="Models\SignUp\Promotion.cs" />
+    <Compile Include="Models\Subscription\Reader.cs" />
+    <Compile Include="Models\ShippingPrice.cs" />
+    <Compile Include="Models\Site\SiteConfig.cs" />
+    <Compile Include="Models\Subscription\SubscriptionProduct.cs" />
+    <Compile Include="Models\Enumerations\ProductStatus.cs" />
+    <Compile Include="Models\Account\User.cs" />
+    <Compile Include="Models\Account\UserCredentials.cs" />
+    <Compile Include="Models\Account\UserMigrationInfo.cs" />
+    <Compile Include="Models\Subscription\UserSubscription.cs" />
+    <Compile Include="Models\Enumerations\SubscriptionStatus.cs" />
+    <Compile Include="PaymentProcessor\BeanStream\BeanStreamPaymentProcessor.cs" />
+    <Compile Include="PaymentProcessor\IPaymentProcessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Routing\LowercaseRoute.cs" />
+    <Compile Include="Routing\OrganicSeoHelpers.cs" />
+    <Compile Include="Routing\RouteCollectionExtension.cs" />
+    <Compile Include="Services\ShippingCalculator.cs" />
+    <Compile Include="Services\TaxCalculator.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Tasks\BackgroundTask.cs" />
+    <Compile Include="Tasks\TaskExecutor.cs" />
+    <Compile Include="Utilities\LinqExtensions.cs" />
+    <Compile Include="Utilities\SelectIndexProvider.cs" />
+    <Compile Include="Validators\LogOnModelValidator.cs" />
+    <Compile Include="Validators\RegisterModelValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Models.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

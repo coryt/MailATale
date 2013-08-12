@@ -1,0 +1,79 @@
+﻿@model GiftPurchaseModel
+
+<fieldset class="well" data-bind="fadeVisible: order.Lines()[0].recipient.isValid()">
+    <legend>3 Review and place your order</legend>
+    <section>
+        <div class="control-group">
+            @Html.LabelFor(m => m.SendGiftNoticeOn, "When would you like us to {0} the recipient?", new { @class = "control-label" }, "notify")
+            <div class="controls">
+                <div class="input-append date" id="dp3" data-date='' data-date-format="mm-dd-yyyy">
+                @Html.TextBoxFor(m => m.SendGiftNoticeOn, new { @class = "span2", @size="16", data_bind = "value: order.sendGiftNoticeOn" })
+				<span class="add-on"><i class="icon-calendar"></i></span>
+			  </div>
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.FullName, "{0} your gift email", new { @class = "control-label" }, "Personalize")
+            <div class="controls">
+                @Html.TextAreaFor(m => m.PersonalMessage, new { @class = "span5", placeholder = "", data_bind = "value: order.personalMessage" })
+            </div>
+        </div>
+    </section>
+    <p>
+        Once your order is received we will send you a confirmation email and receipt. If you have any trouble please contact us at <a href="mailto:info@mailatale.ca">info@mailatale.ca</a><br />
+        <strong>Please Note, we currently do not ship to Air-Stage locations.</strong></>
+    <hr class="up" />
+        <section class="billing-info">
+            <p>
+                You will be billed for your selected gift package immediately. Book Boxes will be mailed around the middle of each month.
+                <br />
+                <span>Sign up by the 10th to make sure the recipient can receive package for that month!</span>
+            </p>
+            <p>**For the holiday season, additional shipping fees may be levied by Canada Post to deliver the package by Christmas time. If these fees are levied, you will be contacted for approval.</p>
+        </section>
+        <hr class="down" />
+
+        <div class="row summary">
+            <section class="span3">
+                <h4>Billing Address</h4>
+                <div data-bind="template: { name: 'address-summary', data: order.billingAddress }"></div>
+            </section>
+
+            <section class="span3">
+                <h4>Billing Information</h4>
+                <div data-bind="template: { name: 'billing-summary', data: order.payment }"></div>
+            </section>
+            <section class="span5 order-summary">
+                <div data-bind="template: { name: 'order-summary', data: order }"></div>
+            </section>
+        </div>
+</fieldset>
+
+
+<script type="text/html" id="address-summary">
+    <p><span data-bind="text: $root.order.fullName"></span></p>
+    <p data-bind="text: street1"></p>
+    <p data-bind="text: street2"></p>
+    <p><span data-bind="text: city"></span>&nbsp;<span data-bind="text: province"></span></p>
+    <p data-bind="text: postalCode"></p>
+</script>
+
+<script type="text/html" id="billing-summary">
+    <p data-bind="text: creditCardType"></p>
+    <p data-bind="text: maskedCreditCardNumber"></p>
+    <p data-bind="text: creditCardExpiry"></p>
+</script>
+
+<script type="text/html" id="order-summary">
+    <div class="notifier"></div>
+    <h4>Your Order</h4>
+    <ul data-bind="foreach:Lines">
+        <li class="row"><span class="pull-left" data-bind="text:name"></span><span class="pull-right" data-bind="text:displayPrice"></span></li>
+    </ul>
+    <hr />
+    <div class="row subtotal">Subtotal<span class="pull-right" data-bind="text: displaySubTotal"></span></div>
+    <div class="row shipping">Shipping<span class="pull-right displayShipping" data-bind="text:displayShipping"></span></div>
+    <div class="row tax">Taxes<span class="pull-right" data-bind="text:displayTax"></span></div>
+    <div class="row total">Order Total<span class="pull-right" data-bind="text:displayTotal"></span></div>
+    <button type="submit" class="btn btn-order"></button>
+</script>

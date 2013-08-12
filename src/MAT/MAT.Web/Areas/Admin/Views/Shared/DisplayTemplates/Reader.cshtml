@@ -1,0 +1,72 @@
+﻿@using MAT.Core.Models.Account
+@using MAT.Core.Models.Enumerations
+@using MAT.Core.Models.Subscription
+@using MAT.Web.Areas.Admin.Models;
+@using MvcContrib.UI.Grid
+@model Reader
+
+@{
+    int rowIndex = 0;
+    Func<string> rowClass = () => rowIndex++ % 2 == 0 ? "row row-shaded well-small" : "row well-small";
+}
+
+<div class="@rowClass()">
+    <strong class="span3">Id</strong>
+    <span>@Model.Id</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Name</strong>
+    <span>@Model.Name</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Gender</strong>
+    <span>@Model.Gender</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Book Preference</strong>
+    <span>@Model.BookPreference</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Reading Level</strong>
+    <span>@Model.ReadingLevel</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Reading Style</strong>
+    <span>@Model.ReadingStyle</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Relationship To Reader</strong>
+    <span>@Model.RelationshipToUser</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Birthdate</strong>
+    <span>@Model.Birthdate</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Grade</strong>
+    <span>@Model.Grade</span>
+</div>
+    
+<div class="@rowClass()">
+    <strong class="span3">Birthdate</strong>
+    <span>@Model.Birthdate</span>
+</div>
+
+<h3 style="text-align:center">Preference Question Answers</h3>
+
+@{ var questionAnswers = Model.PreferenceAnswers.Select(qa => new RefKeyValuePair<PreferenceQuestion, string>(qa)); }
+@Html.Grid(questionAnswers).Columns(column => {
+    column.For(m => m.Key.Question).Named("Question");
+    column.For(m => m.Value).Named("Answer");
+}).Attributes(@class => "table table-striped table-condensed")
+    
+
+

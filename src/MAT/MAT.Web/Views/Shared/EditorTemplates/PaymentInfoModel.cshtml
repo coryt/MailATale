@@ -1,0 +1,27 @@
+﻿@model PaymentInfoModel
+
+<div class="control-group">
+    @Html.LabelFor(m => m.CreditCardName, "What is the {0} on your credit card?", new { @class = "control-label" }, "name")
+    <div class="controls">
+        @Html.TextBoxFor(m => m.CreditCardName, new { @class = "input-large", placeholder = "your name as it appears", data_bind = "value: order.payment.creditCardName" })
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(m => m.CreditCardNumber, "What is your {0} (Visa or Mastercard Only)?", new { @class = "control-label" }, "credit card number")
+    <div class="controls">
+        @Html.TextBoxFor(m => m.CreditCardNumber, new { @class = "input-large", placeholder = "no spaces or hypens please", data_bind = "value: order.payment.creditCardNumber" })
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(m => m.CreditCardExpiryMonth, "What is the {0}?", new { @class = "control-label" }, "expiry date")
+    <div class="controls">
+        @Html.DropDownListFor(m=>m.CreditCardExpiryMonth, (SelectList)ViewBag.ExpiryMonths, new { @class = "input-small", @data_bind = "value: order.payment.creditCardExpiryMonth" })
+        @Html.DropDownListFor(m=>m.CreditCardExpiryYear, (SelectList)ViewBag.ExpiryYears, new { @class = "input-small", @data_bind = "value: order.payment.creditCardExpiryYear" })
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(m => m.CreditCardSecurityCode, "What is the {0}?", new { @class = "control-label" }, "security code")
+    <div class="controls">
+        @Html.TextBoxFor(m => m.CreditCardSecurityCode, new { @class = "input-small", placeholder = "3 or 4 digits", data_bind = "value: order.payment.creditCardSecurityCode" })
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "Thank You!";
+}
+@section styles
+{
+    <style>
+        .intro
+        {
+            font-weight: bold;
+            font-size: 16px;
+            color: #104D66;
+        }
+
+        p
+        {
+            color: #104D66;
+            margin: 20px 0;
+        }
+
+        img
+        {
+            width: 45px;
+            height: 45px;
+            margin: 0 20px;
+        }
+    </style>
+}
+@section pageribbon {
+    <div class="ribbon thankyou">
+    </div>
+}
+
+<div class="row">
+    <div class="span12">
+        <div class="well-large">
+            <p>
+                <span class="intro">Thank you and welcome to the Mail A Tale gift program!</span><br />
+                We will email you and the gift recipient shortly with instructions to start receiving their monthly Book Box.
+            </p>
+            <p>
+                <strong>Holiday orders</strong>: Your recipient will receive their first box in January provided they redeem their gift by January 10th. If you would like to share the great news in person this holiday season, please download our PDF Holiday Gift Note <a href="~/assets/img/Detailed Holiday Card.pdf" target="_blank">here</a>.
+            </p>
+            <p>If there's anything else we can do for you, please contact us at <a href="mailto:info@mailatale.ca">info@mailatale.ca</a></p>
+        </div>
+    </div>
+</div>

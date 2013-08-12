@@ -1,0 +1,44 @@
+﻿@using MAT.Core.Models.Enumerations
+@model AddressModel
+
+@Html.HiddenFor(m => m.AddressType)
+<div class="control-group">
+    @Html.LabelFor(m => m.Street1, "Street Address", new {@class = "control-label"})
+    <div class="controls">
+        @Html.TextBoxFor(m => m.Street1, new {@class = "input-large"})
+        @Html.ValidationMessageFor(m => m.Street1)
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(m => m.Street2, "Unit/Apt", new {@class = "control-label"})
+    <div class="controls">
+        @Html.TextBoxFor(m => m.Street2, new {@class = "input-large"})
+        @Html.ValidationMessageFor(m => m.Street2)
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(m => m.City, new {@class = "control-label"})
+    <div class="controls">
+        @Html.TextBoxFor(m => m.City, new {@class = "input-large"})
+        @Html.ValidationMessageFor(m => m.City)
+    </div>
+</div>
+<div class="control-group" style="margin-top: 18px;">
+    <div class="controls">
+        @Html.DropDownListFor(m => m.Province, Province.GetProvinces(), string.Empty, new {@class = "chzn-select input-large", data_placeholder = "Select a Province"})
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(m => m.PostalCode, "Postal Code", new {@class = "control-label"})
+    <div class="controls">
+        @Html.TextBoxFor(m => m.PostalCode, new {@class = "input-small"})
+        @Html.ValidationMessageFor(m => m.PostalCode)
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(m => m.Phone, new {@class = "control-label"})
+    <div class="controls">
+        @Html.TextBoxFor(m => m.Phone, new {@class = "input-medium"})
+        @Html.ValidationMessageFor(m => m.Phone)
+    </div>
+</div>

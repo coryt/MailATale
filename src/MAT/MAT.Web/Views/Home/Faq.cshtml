@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "FAQ";
+}
+@section pageribbon {
+    <div class="ribbon faq">
+        <a class="signup" href="@Url.Action("index", "signup", new { area = "" })" title="Join Now!"></a>
+    </div>
+}
+<div class="well-large">
+    <p class="intro">Curious? Here are some of the most common questions people ask us. If you can’t
+        find what you’re looking for, feel free to @Html.ActionLink("let us know", "contact", "home").
+    </p>
+    <dl class="faq">
+        <dt>What is Mail A Tale?</dt>
+        <dd>Mail A Tale is a membership service that mails a personalized box of children’s books right to your
+            door once a month. Every box includes expertly selected books based on your child’s age, interests
+            and reading level. Our service is meant to supplement your child’s reading supply and as your child
+            grows so too will the books they receive. Shipping is free on all Book Box Plus subscriptions and for
+            addresses with two or more Book Box subscriptions. Shipping varies by location for address with
+            individual Book Box subscriptions. You can pause or cancel your subscription at any time.
+        </dd>
+        <dt>How do I join?</dt>
+        <dd>To join Mail A Tale, simply sign-up and we’ll ask you ask a few quick questions about your child and
+            their reading habits. After you join, you will receive an email to confirm your order.
+        </dd>
+        <dt>Can I signup more than one child?</dt>
+        <dd>Absolutely! During the sign-up process you can add up to 3 readers at the same address.
+            Subscriptions are per reader, and you have the option to subscribe to either the Book Box or the
+            Book Box Plus for each reader. If you would like to subscribe for readers at different addresses,
+            you will need to complete the sign-up for your first reader and then add another subscription from
+            the “My Account” page.
+        </dd>
+        <dt>For what ages is Mail A Tale appropriate?</dt>
+        <dd>Book boxes are designed for readers 0 to 8. For babies, Book Boxes include a variety of board
+            books perfect for a newborn. For early readers 3-5, Book Boxes include a variety of paperback
+            and hardcover picture books. And for ‘big’ little readers 6-8, Book Boxes include paperback and
+            hardcover advanced picture books and short chapter books. All Book Boxes are customized to each
+            reader’s age, interests and reading level and you an update your reader’s preferences at any time.
+        </dd>
+        <dt>What books do I get each month?</dt>
+        <dd>That’s all part of the fun! When you join, we’ll ask you ask a few quick questions about your child
+            and their reading habits and our book experts will customize your monthly box. Based on these
+            preferences. Each box is based on a unique monthly theme to get your reader looking forward to
+            new books each month.
+        </dd>
+        <dt>How many books do I receive each month?</dt>
+        <dd>For $19.95/month, you receive either 2 paper/board cover books or 1 premium hardcover book.
+            For $39.95/month, you receive either 4 paper/board cover books, 2 paper/board cover books and 1
+            premium hardcover book, or 2 premium hardcover books.
+        </dd>
+        <dt>What if I already have a book?</dt>
+        <dd>Each month, you have the option to view the books in your Book Box before they are mailed, and can
+            select from a few alternate customized Book Box options should your curated box contain any books
+            you may already have. If you still receive a book you already have, feel free to share it as a gift for
+            another loved one! You can always contact us at <a href="mailto:info@mailatale">info@mailatale.ca</a> if you have any questions.
+        </dd>
+        <dt>How do you pick your books?</dt>
+        <dd>When you sign up for a Mail A Tale subscription, we’ll ask you ask a few quick questions about your
+            child and their reading habits. Each month, we browse though 1000s of books – old and new – to find
+            books your child will love and our team of parents, educators and guest authors review all our book
+            selections to make sure they’re just right. Moreover, as your child grows, their Book Box will grow
+            along with them.
+        </dd>
+        <dt>Are your books new?</dt>
+        <dd>All of our books are new and yours to keep. Our selections are a mix of brand new releases and
+            recent paper and board cover reprints.
+        </dd>
+        @*<dt>How do I change my reader’s preferences?</dt>
+        <dd>Coming soon, you will be able to update your reader’s preferences by logging in to your Mail A Tale account.
+        </dd>*@
+        <dt>When will I receive my order?</dt>
+        <dd>You first Book Box will be shipped 3 weeks after your order has been placed. Future Book Boxes are
+            mailed around the middle of each month. All boxes are shipped from Toronto, Ontario and arrive to
+            most urban locations within 3-5 business days. Boxes sent to rural locations not located near major
+            cities may take longer to arrive.
+        </dd>
+        <dt>Which month’s box will I receive when I join?</dt>
+        <dd>In order to receive the current month’s box you need to join by the 10 th of the month. If you join after
+            the 10th of the month, you will receive the following month’s box. Following your first shipment, you
+            will receive each month’s box around the middle of the month.
+        </dd>
+        <dt>How do you ship Book Boxes?</dt>
+        <dd>All our Book Boxes are shipped via Canada Post. You’ll receive a tracking number (if applicable)
+            along with a notification when your order leaves our warehouse.
+        </dd>
+        <dt>How much is shipping?</dt>
+        <dd>Shipping is FREE on all Book Box Plus subscriptions and if two or more Book Box subscriptions
+            are shipped to the same address. Shipping for individual Book Boxes is $2.95 to Toronto, Montreal
+            and Ottawa and $4.95 to other major cities across the country. For smaller cities and rural areas,
+            shipping ranges between $3.95 for most of rural Ontario and $6.95 for Northern Alberta and B.C..
+            Shipping to the territories is $8.95. For the exact shipping rate to your location, please input your
+            address during sign-up.
+        </dd>
+        <dt>What if my books arrive damaged?</dt>
+        <dd>Please contact us at <a href="mailto:info@mailatale">info@mailatale.ca</a> and we can resolve the issue as soon as possible.
+        </dd>
+        <dt>What if my book box was never received?</dt>
+        <dd>Please contact your local post office with the tracking information provided to you. If you have any
+            difficulties, please email us at <a href="mailto:info@mailatale">info@mailatale.ca</a>.
+        </dd>
+
+        <dt>When is my credit card charged?</dt>
+        <dd>Your credit card is charged when your order is placed. It will then be charged each month on the date you signed up.
+        </dd>
+        <dt>How do I update my credit card information?</dt>
+        <dd>You can update your credit card and billing information by logging in to your Mail A Tale account.
+        </dd>
+        @*<dt>Can I skip a month?</dt>
+        <dd>Comming soon, If you don’t want to receive a box for a period of time, please log into ‘My Account’ and select ‘Pause’
+            beside the subscription you would like to pause. Please pause by the 5th of the month to avoid being
+            billed for the next month.
+        </dd>*@
+        <dt>How do I cancel my account?</dt>
+        <dd>To cancel your subscription, please contact us by the 1st of the month to avoid being billed for the
+            next month. There is no cost or penalty to cancel your account.
+        </dd>
+        <dt>I have questions, ideas, or feedback!</dt>
+        <dd>Awesome! We’d love to hear from you. Please contact us at <a href="mailto:hello@mailatale">hello@mailatale.ca</a>. We love hearing
+            from our strong community of subscribers, so please feel free to reach out.
+        </dd>
+    </dl>
+</div>

@@ -1,0 +1,15 @@
+﻿@using MAT.Core.Models.Account
+@model GiftRecipientModel
+
+<fieldset class="well" data-bind="validationOptions: { messageTemplate: 'customMessageTemplate' }">
+    <legend>1 To get started, tell us about your reader</legend>
+    <div>
+        <section class="personalize">
+            <hr class="up" />
+            <h2>Personalize Your Book Box</h2>
+
+            @Html.EditorFor(m=>m.ReaderInfo,"ReaderPreferences")
+            
+        </section>
+    </div>
+</fieldset>

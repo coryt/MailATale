@@ -1,0 +1,17 @@
+﻿﻿@model CurrentUserViewModel
+@{
+    Layout = "";
+}
+@if (Model.IsAuthenticated())
+{
+    <li>@Html.ActionLink("Account", "index", "settings", new {area = "account"}, new {id = "login"})</li>
+    if (Model.IsAdmin)
+    {
+        <li>@Html.ActionLink("Admin", "index", "default", new {area = "admin"}, new {id = "login"})</li>
+    }
+    <li>@Html.ActionLink("Logout", "logout", "login", new {area = "account"}, new {id = "login"})</li>
+}
+else
+{
+    <li class="nudge-right">@Html.ActionLink("Log in", "index", "login", new {area = "account"}, new {id = "login"})</li>
+}

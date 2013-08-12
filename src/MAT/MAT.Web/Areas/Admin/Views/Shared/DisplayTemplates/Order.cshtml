@@ -1,0 +1,90 @@
+﻿@using MAT.Core.Models
+@using MAT.Core.Models.Account
+@using MAT.Core.Models.Enumerations
+@using MAT.Core.Models.SignUp
+@using MAT.Core.Models.Subscription
+@using MAT.Web.Areas.Admin.Models;
+@using MvcContrib.UI.Grid
+@model Order
+
+@{
+    int rowIndex = 0;
+    Func<string> rowClass = () => rowIndex++ % 2 == 0 ? "row row-shaded well-small" : "row well-small";
+}
+
+<div class="@rowClass()">
+    <strong class="span3">Date Created</strong>
+    <span>@Model.DateCreated</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Status</strong>
+    @{
+        var labelCss = "label";
+        switch (Model.OrderStatus)
+        {
+            case OrderStatuses.Paid:
+                labelCss = "label label-success";
+                break;
+            case OrderStatuses.PaymentPending:
+                labelCss = "label label-warning";
+                break;
+        }
+    }    
+    <span class="@labelCss">@Model.OrderStatus</span>
+</div>
+
+@if (Model.ShippingPrice != null)
+{
+    <div class="@rowClass()">
+        <strong class="span3">Shipping Price</strong>
+        <span>@Model.ShippingPrice.Price.ToString("C")</span>
+    </div>
+
+    <div class="@rowClass()">
+        <strong class="span3">Shipping Tax</strong>
+        <span>@Model.ShippingPrice.Tax.ToString("C")</span>
+    </div>
+}
+
+<div class="@rowClass()">
+    <strong class="span3">Discount</strong>
+    <span>@Model.Discount.ToString("C")</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Tax</strong>
+    <span>@Model.OrderTax.ToString("C")</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Sub-Total</strong>
+    <span>@Model.SubTotal.ToString("C")</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Total</strong>
+    <span>@Model.Total.ToString("C")</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Addresses</strong>
+    <div class="span8">
+        @Html.DisplayFor(m => m.BillingAddress)
+        @Html.DisplayFor(m => m.ShippingAddress)
+    </div>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Payment Message</strong>
+    <span>@Model.PaymentMessage</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Payment Result</strong>
+    <span>@Model.PaymentResult</span>
+</div>
+
+    
+
+

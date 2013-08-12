@@ -1,0 +1,40 @@
+@model dynamic
+@{
+    ViewBag.Title = "Thank You!";
+}
+@section styles
+{
+    <style>
+        p.intro {
+            font-weight: bold;
+            font-size: 16px;
+            color: #104D66;
+        }
+        p {
+             color: #104D66;
+             margin: 20px 0;
+        }
+        img {
+            width:45px; 
+			height:45px;
+            margin: 0 20px;
+        }
+    </style>
+}
+@section pageribbon {
+    <div class="ribbon thankyou">
+    </div>
+}
+
+<div class="row">
+    <div class="span12">
+        <div class="well-large">
+            <p class="intro">Follow us online and help spread the joy of reading with Mail A Tale!</p>
+            <a href="https://www.facebook.com/mailatale" target="_blank"><img src="~/assets/img/footer/facebook.gif" alt="Follow Me on Pinterest" />Find us on Facebook</a>
+            <a href="https://www.twitter.com/mailatale" target="_blank"><img src="~/assets/img/footer/twitter.gif"alt="Follow Me on Pinterest" />Follow us on twitter</a>
+            <a href="https://www.pinterest.com/mailatale" target="_blank"><img src="~/assets/img/footer/big-p-button.png" alt="Follow Me on Pinterest" />See us on Pinterest</a>
+            
+            <p>If there's anything else we can do for you, please contact us at <a href="mailto:info@mailatale.ca">info@mailatale.ca</a></p>
+        </div>
+    </div>
+</div>

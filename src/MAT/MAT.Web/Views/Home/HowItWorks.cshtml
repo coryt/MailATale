@@ -1,0 +1,145 @@
+﻿@{
+    ViewBag.Title = "How It Works";
+}
+@section styles
+{
+    @Styles.Render("~/assets/css/howitworks.css")
+}
+@section pageribbon {
+    <div class="ribbon howitworks">
+        <span class="signup"><a href="@Url.Action("index", "signup", new { area = "" })" title="Join Now!">Get started and fill out your reading profile now!</a></span>
+    </div>
+} 
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $('.calculateShippingFee').click(function () {
+                var pcode = $('input.postalcode').val();
+                if (pcode.length<6) {
+                    $('.shipping-result').hide();
+                    $('.shipping-invalid-result').show();
+                    $('.shipping-invalid-result').text("Invalid Postal Code");
+                    return;
+                }
+                MAT.SignUp.lookupShippingRate($('input.postalcode').val(), function (result) {
+                    if (result.status === "Error") {
+                        $('.shipping-result').hide();
+                        $('.shipping-invalid-result').show();
+                        $('.shipping-invalid-result').text(result.message);
+                        return;
+                    }
+                     
+                    $('.shipping-invalid-result').hide();
+                    $('.shipping-result').show();
+                    $('span.fee').text(result.message);
+                });
+            });
+        });
+    </script>
+}
+
+<section class="subscription">
+    <div class="heading">
+        <h3>Pick your Book Box</h3>
+        <p>Ordering more than one Book Box to the same household automatically qualifies for <span class="free">Free</span> shipping.</p>
+        <span class="penguin" />
+    </div>
+
+
+    <div class="row details">
+        <hr class="down" />
+        <div class="span6 subscription-info">
+            <h3>Book Box</h3>
+            <div class="price">
+                <span>$19.95</span>
+                a month
+            </div>
+            <div class="shipping-fee">+ a small shipping fee</div>
+            <a class="calculate-shipping" href="#shippingFee" role="button" data-backdrop="false" data-toggle="modal">calculate shipping</a>
+            <div class="modal hide" id="shippingFee" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <p>Submit your postal code to calculate your shipping fee</p>
+                    <input class="postalcode" type="text" />
+                    <button type="button" class="btn calculateShippingFee">Submit</button>
+                    <div class="shipping-result hide">Shipping fee: $<span class="fee"></span></div>
+                    <div class="shipping-invalid-result hide"></div>
+                </div>
+            </div>
+            <ul>
+                <li>Includes</li>
+                <li><strong>2</strong> softcover books</li>
+                <li>or</li>
+                <li><strong>1</strong> hardcover book</li>
+            </ul>
+            <a class="signup" href="@Url.Action("index", "signup", new { area = "" })" title="Join Now!"></a>
+        </div>
+        <div class="span1 separator">
+            <img alt="" src="~/assets/img/howitworks/Dash.jpg" />
+        </div>
+        <div class="span5 subscription-info">
+            <h3>Book Box Plus</h3>
+            <div class="price">
+                <span>$39.95</span>
+                a month
+            </div>
+            <div class="free-shipping"></div>
+            <ul>
+                <li>Includes</li>
+                <li><strong>4</strong> softcover books</li>
+                <li>or</li>
+                <li><strong>2</strong> hardcover books</li>
+            </ul>
+            <a class="signup" href="@Url.Action("index", "signup", new { area = "" })" title="Join Now!"></a>
+        </div>
+        <hr class="up" />
+    </div>
+
+</section>
+<section class="howitworks">
+    <h3>How we choose our books</h3>
+    <p>
+        <img src="~/assets/img/howitworks/Birds.jpg" alt="" />
+        When you sign up for a Mail A Tale subscription, we'll ask you a few quick questions about your child and their reading habits. Each month we browse through 1000s of books - both old and new - to find the ones
+        your child will love, and our team of parents, educators and guest authors review all of the selections to make sure they're just right. Moreover, as your child grows, their Book Box will grow along with them. 
+        Join today - and foster a love of reading to last a lifetime!
+    </p>
+</section>
+<section class="howitworks">
+    <h3>Types of books we send</h3>
+    <p>
+        From award winners to back-list gems,<br />
+        we find the best books from the best kids'
+        <br />
+        book publishers around.
+    </p>
+    <ul class="comparebooks">
+        <li class="boardback">
+            <p>Board books are thicker and made from cardboard - durable and semi-chew proof.</p>
+            <p class="blue">Great for readers aged 0-2</p>
+        </li>
+        <li class="hardcover">
+            <p>Hardcovers are recently published titles with a firm cover to last a childtime on the bookshelf.</p>
+            <p class="blue">Great for readers aged 0-8</p>
+        </li>
+        <li class="softcover">
+            <p>Paperbacks are generally slightly older titles with soft covers - not recommended for those with really (really) tiny fingers.</p>
+            <p class="blue">Great for readers aged 3-8</p>
+        </li>
+    </ul>
+</section>
+<section class="howitworks">
+    <h3>Delivery and Duplicates</h3>
+    <p>Book Boxes are delivered <strong>monthly</strong>. A week before your Book Box is mailed, we'll send you a short email to let you know the books that are on the way and give you the option to select a substitute if you already have any of the selections.</p>
+    <p class="orange">We will bill you for your first book box immediately. Subsequent Book Boxes are billed on the 1st of each month.</p>
+    <p class="orange">Book Boxes will be mailed around the middle of each month.</p>
+    <p class="gray">To receive the current months Book Box, you must join before the tenth of that month.</p>
+</section>
+<section class="howitworks">
+    <h3>Cancelling Your Subscription</h3>
+    <p>If for whatever reason you wish to cancel your subscription, there are no penalties, fees or hidden charges. Simply let us know and we'll cancel your subscription right away.</p>
+    <p class="orange">Please keep in mind that we cannot cancel orders that have already been billed and/or shipped - so make sure to cancel before the 1st of the month.</p>
+</section>

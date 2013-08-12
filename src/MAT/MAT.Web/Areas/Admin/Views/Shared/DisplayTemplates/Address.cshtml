@@ -1,0 +1,19 @@
+﻿@using MAT.Core.Models.Account
+@model Address
+
+@if (Model != null)
+{
+    <address class="span3">
+        <strong>@Model.AddressType</strong><br />
+        @Model.Street1<br />
+        @if (!string.IsNullOrWhiteSpace(@Model.Street2))
+        {
+            @Model.Street2<br />
+        }
+        @Model.City, @Model.Province @Model.PostalCode<br />
+        @Model.Country<br />
+        <abbr title="Phone">P:</abbr> @Model.Phone
+    </address>
+}
+
+

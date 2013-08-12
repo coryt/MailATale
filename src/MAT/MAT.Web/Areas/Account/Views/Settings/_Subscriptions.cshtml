@@ -1,0 +1,35 @@
+﻿@model IEnumerable<UserSubscriptionReference>
+
+<div class="row">
+    <div class="span4">
+        <h3>My Subscriptions</h3>
+        <ul>
+            @if (!Model.Any())
+            {
+                if (ViewBag.NeedsAccountInfo)
+                {
+                    <li><a href="#tabAccount">Update your account</a> with a billing & shipping address before adding a subscription.</li>
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Add a subscription", "addpackage", "register", new {area = "Account"}, new {})</li>
+                }
+            }
+            else
+            {
+                foreach (UserSubscriptionReference subscription in Model)
+                {
+                    <li>
+                        @subscription.SubscriptionRef.SubscriptionName - @subscription.SubscriptionStatus
+                        <ul>
+                            @foreach (ReaderReference reader in @subscription.ReaderRef)
+                            {
+                                <li>@reader.Name</li>
+                            }
+                        </ul>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MAT.Core.Models.Book" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAAAAAQAAAAAAQAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Book.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Model">
+    <Position X="5.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Model.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Subscription.UserSubscription" Collapsed="true">
+    <Position X="20" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACAAAAQAAAABAgAAAAEAgAAAAAAAAAABAAAAAABAA=</HashCode>
+      <FileName>Models\Subscription\UserSubscription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Subscription.Package" Collapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAJAEAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Subscription\PackageHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Subscription.PackageMigrationInfo" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Subscription\PackageMigrationInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Subscription.Reader" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAQEAQAACAEAAAAAQAAAAgIAAAAIAAAgEAAAg=</HashCode>
+      <FileName>Models\Subscription\Reader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Subscription.SubscriptionProduct" Collapsed="true">
+    <Position X="21.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAABEAQAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Subscription\SubscriptionProduct.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Order" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACAAQAUAiCEAAAQBCAAAAACAAAQAAAAwAEAAQAIAA=</HashCode>
+      <FileName>Models\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.PaginationDefaults" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Models\PaginationDefaults.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.PaymentResponse" Collapsed="true">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAQAAAAAAAAcAAgAAAAAAgAAAIAAAAAA=</HashCode>
+      <FileName>Models\PaymentResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.ShippingPrice" Collapsed="true">
+    <Position X="18.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAgAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ShippingPrice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.ShippingRate" Collapsed="true">
+    <Position X="20" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAgAAAAAAA=</HashCode>
+      <FileName>Models\ShippingRate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Site.SiteConfig" Collapsed="true">
+    <Position X="5.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAACBAAAAEAEwAAAAEAAAAAQAIAAAAAACABAAAA=</HashCode>
+      <FileName>Models\Site\SiteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.SignUp.Promotion" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAwAAAAEAAAAEAAggAACAAAACAAAgAAAAAAAAAQE=</HashCode>
+      <FileName>Models\SignUp\Promotion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.SignUp.SubscriptionOrder" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAECCAAIAAAAAAAAgAAAAAhAAAAQAEAAAAAAA=</HashCode>
+      <FileName>Models\SignUp\SubscriptionOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Gift.GiftOrder" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAACAAIAAAAAAAAAAAAAAhAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\Gift\GiftOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Gift.GiftPurchase" Collapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQKAIAABAAFCAAMEAAAGABAAAAAAECAAAAIAAAgAJA=</HashCode>
+      <FileName>Models\Gift\GiftPurchase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Enumerations.AddressType" Collapsed="true">
+    <Position X="1" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Enumerations\AddressTypes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Enumerations.Enumeration" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABABEAAAAAIAAAQEgAAAAEQAAAAAAIAEAiAgAAAAIAA=</HashCode>
+      <FileName>Models\Enumerations\Enumeration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAT.Core.Models.Enumerations.Gender" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Models\Enumerations\Gender.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Enumerations.GradeLevel" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAABAAAAAAFAAAAAAIAgAEAAAAAAgAAAgAAIQ=</HashCode>
+      <FileName>Models\Enumerations\GradeLevel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Enumerations.Province" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAABBAAAAQCAIAAAAIAAAAAgCAAAAAAAAEgCApAI=</HashCode>
+      <FileName>Models\Enumerations\Province.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Enumerations.ReadingLevel" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAEAIACAAAAAAA=</HashCode>
+      <FileName>Models\Enumerations\ReadingLevel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Enumerations.Relationships" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BABAAAAAAAAACAAABBAAAAAAAAAAAIAACAABAAEAAAA=</HashCode>
+      <FileName>Models\Enumerations\Relationships.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Account.UserMigrationInfo" Collapsed="true">
+    <Position X="18.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAgEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Account\UserMigrationInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Account.AccountRecovery" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\Account\AccountRecovery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Account.Address" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIoAAAAAAAAg4AAIAAAAAAIgQAAgA=</HashCode>
+      <FileName>Models\Account\Address.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MAT.Core.Models.Account.PreferenceQuestion" Collapsed="true">
+    <Position X="20" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAgAEAAAAAAAAAAAAAEAAAAAAgAAkQAAIAAAACAA=</HashCode>
+      <FileName>Models\Account\PreferenceQuestion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Account.PreferenceQuestionGroup" Collapsed="true">
+    <Position X="21.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAACAA=</HashCode>
+      <FileName>Models\Account\PreferenceQuestionGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Account.User" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCAFBAUCAAAIAAAAIAAgAYCAACAAAAAAiEABAAAAg=</HashCode>
+      <FileName>Models\Account\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAT.Core.Models.Account.UserCredentials" Collapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAABACAgAAAAIAAAAAAggAAAAAAwAAQAgIAAAAA=</HashCode>
+      <FileName>Models\Account\UserCredentials.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="MAT.Core.Models.PaymentResults" Collapsed="true">
+    <Position X="21.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAgAAMAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Models\PaymentResult.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MAT.Core.Models.ShippingAreas" Collapsed="true">
+    <Position X="16.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgA=</HashCode>
+      <FileName>Models\ShippingAreas.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MAT.Core.Models.SignUp.OrderStatuses" Collapsed="true">
+    <Position X="20" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SignUp\OrderStatuses.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MAT.Core.Models.Enumerations.SubscriptionStatus" Collapsed="true">
+    <Position X="18.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAACAAIAAAAAAAAAAAAAAAAAAhAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Enumerations\SubscriptionStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MAT.Core.Models.Enumerations.AgeGroups" Collapsed="true">
+    <Position X="14.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACCAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Models\Enumerations\AgeGroups.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MAT.Core.Models.Enumerations.BookThemes" Collapsed="true">
+    <Position X="16.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAQACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Enumerations\BookThemes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MAT.Core.Models.Enumerations.DeliveryFrequency" Collapsed="true">
+    <Position X="18.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAgA=</HashCode>
+      <FileName>Models\Enumerations\DeliveryFrequency.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MAT.Core.Models.Enumerations.ProductStatus" Collapsed="true">
+    <Position X="14.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Enumerations\ProductStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

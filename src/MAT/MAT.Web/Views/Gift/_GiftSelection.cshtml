@@ -1,0 +1,108 @@
+﻿@model GiftPurchaseModel
+
+<fieldset class="well">
+    <section class="personalize">
+        <legend class="low">1 To get started, tell us about the recipient</legend>
+        <div class="control-group">
+            @Html.LabelFor(m=>m.Lines[0].Recipient.Name, "What is the gift receivers {0}?", new { @class= "control-label"}, "parent name")
+            <div class="controls">
+                @Html.TextBoxFor(m=>m.Lines[0].Recipient.Name,new { @class="input-large", placeholder="first and last name", data_bind="value: order.Lines()[0].recipient.name" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m=>m.Lines[0].Recipient.Email, "What is the gift receivers {0}?", new { @class= "control-label"}, "email")
+            <div class="controls">
+                @Html.TextBoxFor(m=>m.Lines[0].Recipient.Email,new { @class="input-large", placeholder="example@email.com", data_bind="value: order.Lines()[0].recipient.email" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m=>m.Lines[0].Recipient.ReaderName, "What is the readers {0} name?", new { @class= "control-label"}, "first")
+            <div class="controls">
+                @Html.TextBoxFor(m=>m.Lines[0].Recipient.ReaderName,new { @class="input-large", data_bind="value: order.Lines()[0].recipient.readerName" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m=>m.Lines[0].Recipient.Gender, "What is the readers {0}?", new { @class= "control-label"}, "gender")
+            <div class="controls">
+                <label class="controls">
+                    @Html.DropDownListFor(
+                m => m.Lines[0].Recipient.Gender,
+                (SelectList)ViewBag.Genders,
+                new { @class="input-small", data_bind="options: MAT.Lists.genders, optionsValue: 'Text', optionsText: 'Text', value: order.Lines()[0].recipient.gender" })
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m=>m.Lines[0].Recipient.Province, "What {0} do they live in?", new { @class= "control-label"}, "province")
+            <div class="controls">
+                 @Html.DropDownListFor(
+                m => m.Lines[0].Recipient.Province,
+                (SelectList)ViewBag.Provinces,
+                "Select a Province",
+                new { @class="input-large", data_bind="options: MAT.Lists.provinces, optionsValue: 'Value', optionsText: 'Text', optionsCaption: 'Select a Province', value: order.Lines()[0].recipient.province" })
+            </div>
+        </div>
+
+        <section class="subscription">
+            <div class="heading">
+                <h2>Pick your Book Box and gift package</h2>
+                <p>Please select either the Book Box or Book Box Plus and your desired package length. Book Boxes will be delivered monthly.</p>
+                <span class="penguin" />
+            </div>
+            <hr class="down" />
+
+            <div class="row details">
+                @Html.HiddenFor(m=>m.Lines[0].GiftLength, new {data_bind="value: order.Lines()[0].giftLength" })
+                @Html.HiddenFor(m=>m.Lines[0].Subscription, new {data_bind="value: order.Lines()[0].subscription" })
+                @Html.HiddenFor(m=>m.Lines[0].Area, new {data_bind="value: order.Lines()[0].area" })
+
+                <div class="span6 subscription-info">
+                    <h3>Book Box</h3>
+                    <div class="price">
+                        <span>$19.95</span>
+                        a month
+                    </div>
+                    <div class="shipping-fee">+ a small shipping fee</div>
+                    <ul>
+                        <li>Includes</li>
+                        <li><strong>2</strong> softcover books</li>
+                        <li>or</li>
+                        <li><strong>1</strong> hardcover book</li>
+                    </ul>
+                    <h5>Package Length</h5>
+                    <select id="bookBox-basic" name="bookBox-basic" data-bind="value: order.Lines()[0].bookBoxLength">
+                        <option value="0">please select one</option>
+                        <option value="1">1 month package</option>
+                        <option value="3">3 month package</option>
+                        <option value="6">6 month package</option>
+                        <option value="12">12 month package</option>
+                    </select>
+                </div>
+                <div class="span1 separator"></div>
+                <div class="span5 subscription-info">
+                    <h3>Book Box Plus</h3>
+                    <div class="price">
+                        <span>$39.95</span>
+                        a month
+                    </div>
+                    <div class="free-shipping"></div>
+                    <ul>
+                        <li>Includes</li>
+                        <li><strong>4</strong> softcover books</li>
+                        <li>or</li>
+                        <li><strong>2</strong> hardcover books</li>
+                    </ul>
+                    <h5>Package Length</h5>
+                    <select id="bookBox-plus" name="bookBox-plus" data-bind="value: order.Lines()[0].bookBoxPlusLength">
+                        <option value="0">please select one</option>
+                        <option value="1">1 month package</option>
+                        <option value="3">3 month package</option>
+                        <option value="6">6 month package</option>
+                        <option value="12">12 month package</option>
+                    </select>
+                </div>
+            </div>
+            <hr class="up" />
+        </section>
+    </section>
+</fieldset>

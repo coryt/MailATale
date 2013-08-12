@@ -1,0 +1,125 @@
+@using MAT.Core.Models.Account
+@model SignUpModel
+
+@functions
+{
+    public string IndexToName(int index)
+    {
+        switch (index)
+        {
+            default:
+                return "First";
+            case 1:
+                return "Second";
+            case 2:
+                return "Third";
+        }
+    }
+}
+
+<fieldset class="well" data-bind='validationOptions: { messageTemplate: "customMessageTemplate" }'>
+    <legend>1 To get started, tell us about your reader(s)</legend>
+    <div>
+        <div class="control-group">
+            <label class="control-label" for="NumberOfReaders">How many <strong>Book Boxes</strong> would you like? (one Book Box per child)</label>
+            <div class="controls">
+                <select id="NumberOfReaders" data-bind="options: MAT.Lists.bookBoxes, optionsValue: 'Value', optionsText: 'Text', optionsText: 'Text', optionsCaption: 'Please Select...', value: numberOfReaders" name="NumberOfReaders" class="input-large"></select>
+            </div>
+        </div>
+
+        @for (int index = 0; index < Model.Lines.Count; index++)
+        {
+            <!-- ko with: order.lines()[@index] -->
+            var lineItem = Model.Lines[index];
+            if (@index == 0)
+            {
+            <p class="orange">
+                Each reader requires their own personalized Book Box and subscription package,
+                <br />
+                which you can configure below.
+            </p>
+            }
+            
+            <section class="@(index % 2 == 0 ? "personalize" : "personalize-alt") bookbox-@index">
+                <!-- ko if: $root.showReader(@index) -->
+                @if (@index >= 1)
+                {
+                    <div class="continue-multireader">
+                        You’re doing great! Now personalize your next readers Book Box.
+                    </div>
+                }
+
+                <hr class="up" />
+                <h2>Personalize Your <span>@IndexToName(@index)</span>Book Box</h2>
+                @Html.HiddenFor(m=>m.Lines[index].DeliverySchedule, new {data_bind="value: deliverySchedule" })
+                @Html.HiddenFor(m=>m.Lines[index].Subscription, new {data_bind="value: subscription" })
+                @Html.EditorFor(m => m.Lines[index].Reader, "ReaderPreferences")
+
+                <section class="subscription">
+                    <div  class="@(index % 2 == 0 ? "heading" : "heading-alt")">
+                        <h2>Pick your Book Box Subscription</h2>
+                        <p>If you are ordering more than one Book Box to the same home you will automatically qualify for <span class="free">Free</span> shipping.</p>
+                        <span class="penguin" />
+                    </div>
+                    <hr class="down" />
+
+                    <div class="row details">
+                        <div class="span6 subscription-info">
+                            <h3>Book Box</h3>
+                            <div class="price">
+                                <span>$19.95</span>
+                                a month
+                            </div>
+                            <div class="shipping-fee">+ a small shipping fee</div>
+                            <a class="calculate-shipping">calculate shipping</a>
+                            <div class="modal hide" tabindex="-1">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Submit your postal code to calculate your shipping fee</p>
+                                    <input class="postalcode" type="text" />
+                                    <button type="button" class="btn calculateShippingFee">Submit</button>
+                                    <div class="shipping-result hide">Shipping fee: $<span class="fee"></span></div>
+                                    <div class="shipping-invalid-result hide"></div>
+                                </div>
+                            </div>
+                            <ul>
+                                <li>Includes</li>
+                                <li><strong>2</strong> softcover books</li>
+                                <li>or</li>
+                                <li><strong>1</strong> hardcover book</li>
+                            </ul>
+                            <button type="button" class="btn btn-basic" data-boxtype="basic" data-bind="click: selectSubscription, attr: { id: 'doubleBox' + @index, name: 'doubleBox' + @index }"></button>
+                            <img class="box-selected-basic" alt="" src="~/assets/img/signup/spacer.gif"></img>
+                        </div>
+                        <div class="span1 separator"></div>
+                        <div class="span5 subscription-info">
+                            <h3>Book Box Plus</h3>
+                            <div class="price">
+                                <span>$39.95</span>
+                                a month
+                            </div>
+                            <div class="free-shipping"></div>
+                            <ul>
+                                <li>Includes</li>
+                                <li><strong>4</strong> softcover books</li>
+                                <li>or</li>
+                                <li><strong>2</strong> hardcover books</li>
+                            </ul>
+                            <button type="button" class="btn btn-plus" data-boxtype="plus" data-bind="click: selectSubscription, attr: { id: 'doubleBox' + @index, name: 'doubleBox' + @index }"></button>
+                            <img class="hide box-selected-plus" alt="" src="~/assets/img/signup/spacer.gif"></img>
+                        </div>
+                    </div>
+                    <hr class="up" />
+                </section>
+
+                <div data-bind="fadeVisible:!reader.continue()" class="section-error">
+                    Please complete all required fields above to continue
+                </div>
+                <!-- /ko -->
+            </section>
+            <!-- /ko -->
+        }
+    </div>
+</fieldset>

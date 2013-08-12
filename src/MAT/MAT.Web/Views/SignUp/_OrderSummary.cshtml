@@ -1,0 +1,60 @@
+@model SignUpModel
+
+<fieldset class="well" data-bind="fadeVisible: order.account.isValid()">
+    <legend>3 Review and place your order</legend>
+    <p>Once your order is received we will send you a confirmation email and receipt. You can cancel or modify your subscription at any time. If you have any trouble please contact us at <a href="mailto:info@mailatale.ca">info@mailatale.ca</a></p>
+    
+    <hr class="up" />
+    <section class="billing-info">
+        <p>We will bill you for your first Book Box immediately, subsequent Book Boxes are billed on the date you signed-up, each month. Book Boxes will be mailed around the middle of each month.
+        <span>To receive the currenty months Book Box, you must join before the tenth of that month.</span></p>
+    </section>
+    <hr class="down" />
+
+    <div class="row summary">
+        <section class="span3">
+            <h4>Shipping Address</h4>
+            <div data-bind="template: { name: 'address-summary', data: order.account }"></div>
+        </section>
+
+        <section class="span3">
+            <h4>Billing Information</h4>
+            <div data-bind="template: { name: 'billing-summary', data: order.payment }"></div>
+        </section>
+        <section class="span5 order-summary">
+            <div data-bind="template: { name: 'order-summary', data: order }"></div>
+        </section>
+    </div>
+</fieldset>
+
+
+<script type="text/html" id="address-summary">
+    <p><span data-bind="text: firstName"></span>&nbsp;<span data-bind="text: lastName"></span></p>
+    <p data-bind="text: street1"></p>
+    <p data-bind="text: street2"></p>
+    <p><span data-bind="text: city"></span>&nbsp;<span data-bind="text: province"></span></p>
+    <p data-bind="text: postalCode"></p>
+</script>
+
+<script type="text/html" id="billing-summary">
+    <p data-bind="text: creditCardType"></p>
+    <p data-bind="text: maskedCreditCardNumber"></p>
+    <p data-bind="text: creditCardExpiry"></p>
+</script>
+
+<script type="text/html" id="order-summary">
+    <div class="notifier"></div>
+    <h4>Your Order</h4>
+    @*<input class="span4" id="Refferal" name="Refferal" type="text" value="" data-bind="value: payment.refferalCode" placeholder="If you have a refferal code, enter it here" />
+    <button type="button" id="check-promotion" class="btn btn-mini btn-info">Submit</button>*@
+    <ul data-bind="foreach:lines">
+        <li class="row"><span class="pull-left" data-bind="text:name"></span><span class="pull-right" data-bind="text:displayPrice"></span></li>
+    </ul>
+    <hr />
+    <div class="row discount" data-bind="if: referralName"><span data-bind="text:referralName"></span><span class="pull-right" data-bind="text:displayDiscount"></span></div>
+    <div class="row subtotal">Subtotal<span class="pull-right" data-bind="text: displaySubTotal"></span></div>
+    <div class="row shipping">Shipping<span class="pull-right displayShipping" data-bind="text:displayShipping"></span></div>
+    <div class="row tax">Taxes<span class="pull-right" data-bind="text:displayTax"></span></div>
+    <div class="row total">Order Total<span class="pull-right" data-bind="text:displayTotal"></span></div>
+    <button type="submit" class="btn btn-order"></button>
+</script>

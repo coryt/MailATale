@@ -1,0 +1,65 @@
+﻿@using System.Web.Optimization
+@using MAT.Web.Areas.Admin.Models
+@using MAT.Core.Models
+@using MAT.Core.Models.Gift
+@using MAT.Core.Models.SignUp
+@using MAT.Core.Models.Subscription
+@using MvcContrib.UI.Grid
+@model OrderDetailsViewModel
+@{
+    ViewBag.Title = "Admin - " + Model.Order.Id;
+}
+@section pageribbon {
+    <div class="ribbon">
+        <h1>Manage Orders</h1>
+    </div>
+}
+
+<h1 style="text-align: center">@Model.Order.Id</h1>
+
+@Html.DisplayFor(m => m.Order)
+
+@{
+    int rowIndex = 0;
+    Func<string> rowClass = () => rowIndex++ % 2 == 0 ? "row row-shaded well-small" : "row well-small";
+}
+
+@if (Model.OrderType == OrderType.Subscription)
+{
+    var subscriptionOrder = Model.Order as SubscriptionOrder;
+    
+    <h2 style="text-align: center">Subscription Order Details</h2>
+    
+    <div class="@rowClass()">
+        <strong class="span3">User ID</strong>
+        <span>@Html.ActionLink(subscriptionOrder.UserId, "Details", "Users", new { id = subscriptionOrder.UserId }, null)</span>
+    </div>
+    
+    <div class="@rowClass()">
+        <strong class="span3">E-mail</strong>
+        <span><a href="mailto:@subscriptionOrder.Email">@subscriptionOrder.Email</a></span>
+    </div>
+    
+    <div class="@rowClass()">
+        <strong class="span3">Full Name</strong>
+        <span>@subscriptionOrder.FullName</span>
+    </div>
+    
+    <h3 style="text-align: center">User Subscriptions</h3>
+
+    @Html.Grid(Model.Subscriptions).Columns(column => {
+        column.For(m => m.Id).Named("ID");
+        column.For(m => m.StartedOn);
+        column.For(m => m.SubscriptionStatus).Named("Status");
+        column.For(m => m.DeliveryFrequency).Named("Frequency");
+        column.For(m => Html.ActionLink("Details", "Details", "Subscriptions", new { id = m.Id }, null));
+    }).Attributes(@class => "table table-striped table-condensed")
+}
+else if (Model.OrderType == OrderType.Gift)
+{
+    <h2 style="text-align: center">Gift Order Details</h2>
+    
+    <h3 style="text-align:center">Gift Purchase</h3>
+    
+    Html.RenderPartial("DisplayTemplates/GiftPurchase", Model.GiftPurchase);
+}

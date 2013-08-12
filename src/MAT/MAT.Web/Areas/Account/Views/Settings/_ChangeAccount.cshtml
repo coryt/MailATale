@@ -1,0 +1,56 @@
+﻿@model ChangeAccountModel
+@using (Ajax.BeginForm("changeaccount", "settings",
+                       new AjaxOptions
+                           {
+                               UpdateTargetId = "result",
+                               InsertionMode = InsertionMode.Replace,
+                               HttpMethod = "Post",
+                               OnSuccess = "ClearValidationErrors('#change-account', xhr)",
+                               OnFailure = "ReloadForm('#change-account', xhr)"
+                           },
+                       new {@id = "change-account"}))
+{
+    <div class="row">
+        <div class="span4">
+            <div id="result"></div>
+            @Html.HiddenFor(m => m.Id)
+            <div class="control-group">
+                @Html.LabelFor(m => m.FirstName, new {@class = "control-label"})
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.FirstName, new {@class = "input-large"})
+                    @Html.ValidationMessageFor(m => m.FirstName)
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(m => m.LastName, new {@class = "control-label"})
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.LastName, new {@class = "input-large"})
+                    @Html.ValidationMessageFor(m => m.LastName)
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(m => m.Email, new {@class = "control-label"})
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.Email, new {@class = "input-large"})
+                    @Html.ValidationMessageFor(m => m.Email)
+                </div>
+            </div>
+        </div>
+        <div class="span5">
+            <ul class="nav nav-pills">
+                <li><a href="#tabShipping" data-toggle="tab">Shipping Address</a></li>
+                <li><a href="#tabBilling" data-toggle="tab">Billing Address</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane" id="tabShipping">
+                    @Html.EditorFor(m => m.ShippingAddress, "Address")
+                    <p>@Html.CheckBoxFor(m=>m.UseShippingAsBilling) Use this address as my billing address.</p>
+                </div>
+                <div class="tab-pane" id="tabBilling">
+                    @Html.EditorFor(m => m.BillingAddress, "Address")
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+}

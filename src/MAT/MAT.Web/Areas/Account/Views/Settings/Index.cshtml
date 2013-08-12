@@ -1,0 +1,86 @@
+﻿@model AccountSettingsModel
+@{
+    ViewBag.Title = "Your Account Settings";
+}
+@section pageribbon {
+    <div class="ribbon blue down">
+        <h1>Account Settings</h1>
+    </div>
+}
+@section styles
+{
+    @Styles.Render("~/assets/css/themes/base/ui")
+    <style>
+        .tab-content
+        {
+            min-height: 400px;
+        }
+    </style>
+}
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $(".nav-tabs li:first-child").addClass("active");
+            $(".nav-pills li:first-child").addClass("active");
+            $(".tab-content .tab-pane:first-child").addClass("active");
+
+            $("input#UseShippingAsBilling").change(function () {
+                if ($(this).is(":checked")) {
+                    $("input#BillingAddress_Street1").val($("input#ShippingAddress_Street1").val());
+                    $("input#BillingAddress_Street2").val($("input#ShippingAddress_Street2").val());
+                    $("input#BillingAddress_City").val($("input#ShippingAddress_City").val());
+                    $("input#BillingAddress_PostalCode").val($("input#ShippingAddress_PostalCode").val());
+                    $("input#BillingAddress_Phone").val($("input#ShippingAddress_Phone").val());
+
+                    $("#BillingAddress_Province").val($("#ShippingAddress_Province").val());
+                    $(".chzn-select").trigger("liszt:updated");
+                }
+            });
+        });
+
+        function ReloadForm(form, xhr) {
+            $(form).html(xhr.responseText);
+        }
+
+        function ClearValidationErrors(form, xhr) {
+            $("#result", form).html(xhr.responseText);
+            $('.validation-summary-errors').html('');
+            $('.input-validation-error').removeClass('input-validation-error');
+            $('.field-validation-error').remove();
+        }
+    </script>
+}
+
+<div class="row">
+    <div class="span3">
+        <div class="well" style="width: 300px; padding: 8px 0;">
+            <ul class="nav nav-list">
+                <li class="active"><a href="#tabAccount" data-toggle="tab"><i class="icon-home"></i>Account</a></li>
+                @*<li><a href="#tabPayment" data-toggle="tab"><i class="icon-shopping-cart"></i>Update Credit Card</a></li>*@
+                <li><a href="#tabPassword" data-toggle="tab"><i class="icon-edit"></i>Change Password</a></li>
+                @*<li><a href="#tabSubscriptions" data-toggle="tab"><i class="icon-calendar"></i> Subscriptions</a></li>*@
+                @*<li><a href="#tabPreferences" data-toggle="tab"><i class="icon-user"></i> Reader Preferences</a></li>*@
+            </ul>
+        </div>
+    </div>
+
+    <div class="span8 well">
+        <div class="tab-content">
+            <div class="tab-pane active" id="tabAccount">
+                @{ Html.RenderAction("changeaccount", "settings"); }
+            </div>
+            @*<div class="tab-pane" id="tabPayment">
+                @{ Html.RenderPartial("_CreditCardForm", Model.PaymentModel); }
+            </div>*@
+            <div class="tab-pane" id="tabPassword">
+                @{ Html.RenderPartial("_changepassword", Model.ChangePasswordModel); }
+            </div>
+            @*<div class="tab-pane" id="tabSubscriptions">
+            @{ Html.RenderPartial("_subscriptions", Model.Subscriptions); }
+        </div>*@
+           @* <div class="tab-pane" id="tabPreferences">
+                @{ Html.RenderPartial("_preferences", Model.Readers); }
+            </div>*@
+        </div>
+    </div>
+</div>

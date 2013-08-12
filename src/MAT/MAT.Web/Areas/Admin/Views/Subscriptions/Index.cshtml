@@ -1,0 +1,46 @@
+﻿@using System.Web.Optimization
+@using MvcContrib.UI.Grid
+@using MvcContrib.UI.Pager
+@using MAT.Core.Models
+@using MAT.Core.Models.Account
+@using MAT.Core.Models.Subscription
+@using MAT.Web.Areas.Admin.Models
+@model PagedGridFilterModel<UserSubscription>
+@{
+    ViewBag.Title = "Admin - Manage Subscriptions";
+}
+@section pageribbon {
+    <div class="ribbon">
+        <h1>Manage Subscriptions</h1>
+    </div>
+}
+
+@{
+    var sort = ViewBag.Sort as GridSortOptions;
+    var sortCol = sort != null ? sort.Column : null;
+    var sortDir = sort != null ? sort.Direction : MvcContrib.Sorting.SortDirection.Ascending;
+}
+
+<div class="well-small">
+    @using (Html.BeginForm("Index", "Subscriptions", FormMethod.Get))
+    {
+        @Html.HiddenFor(m => m.Page);
+        @Html.HiddenFor(m => m.Column);
+        @Html.HiddenFor(m => m.Direction);
+    
+        <div class="input-append pull-right">
+            @Html.DropDownListFor(m => m.Filter, ViewBag.Filters as SelectList)
+            <button type="submit" class="btn" value="Filter">Filter</button>
+        </div>
+    }
+</div>
+
+@Html.Grid(Model.Items).Columns(column => {
+    column.For(m => m.Id).Named("ID");
+    column.For(m => m.StartedOn);
+    column.For(m => m.SubscriptionStatus).Named("Status");
+    column.For(m => m.DeliveryFrequency).Named("Frequency");
+    column.For(m => Html.ActionLink("Details", "Details", new { id = m.Id }));
+}).Sort(Model).Attributes(@class => "table table-striped table-condensed")
+
+@{ Html.RenderPartial("_Pagination", Model.Items); }

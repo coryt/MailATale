@@ -1,0 +1,88 @@
+﻿@using MAT.Core.Models.Account
+@model User
+
+<div class="row">
+@if (Model.IsAdmin)
+{
+    <span class="label label-info pull-right"><i class="icon-star icon-white"></i>Admin</span>
+}
+</div>
+
+<br />
+
+@{
+    int rowIndex = 0;
+    Func<string> rowClass = () => rowIndex++ % 2 == 0 ? "row row-shaded well-small" : "row well-small";
+}
+
+<div class="@rowClass()">
+    <strong class="span3">@Html.DisplayNameFor(m => m.FirstName)</strong>
+    <span>@Model.FirstName</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">@Html.DisplayNameFor(m => m.LastName)</strong>
+    <span>@Model.LastName</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">@Html.DisplayNameFor(m => m.Email)</strong>
+    <span><a href="mailto:@Model.Email">@Model.Email</a></span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">@Html.DisplayNameFor(m => m.CreatedOn)</strong>
+    <span>@Model.CreatedOn</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">@Html.DisplayNameFor(m => m.Enabled)</strong>
+    @{
+        var labelClass = Model.Enabled ? "label-success" : "label-important";
+        var enabledText = Model.Enabled ? "Yes" : "No";
+    }
+    <span class="label @labelClass">@enabledText</span>
+</div>
+
+<div class="@rowClass()">
+    <strong class="span3">Addresses</strong>
+    <div class="span8">
+        @{
+            foreach (var address in Model.Addresses)
+            {
+                Html.RenderPartial("DisplayTemplates/Address", address);
+            }
+        }
+    </div>
+</div>
+
+@if (!string.IsNullOrWhiteSpace(Model.PaymentProviderId) || Model.PaymentProviderIds.Count > 0)
+{
+    <div class="@rowClass()">
+        <strong class="span3">Payment Provider ID's</strong>
+        <ul class="unstyled">
+            @if (!string.IsNullOrWhiteSpace(Model.PaymentProviderId))
+            {
+                <li>@Model.PaymentProviderId</li>
+            }
+            @foreach (var id in Model.PaymentProviderIds)
+            {
+                <li>@id</li>
+            }
+        </ul>
+    </div>
+}
+
+@if (Model.UserMigrationInfo != null)
+{
+    <div class="@rowClass()">
+        <strong class="span3">Migration ID</strong>
+        <span>@Model.UserMigrationInfo.Id</span>
+    </div>
+    <div class="@rowClass()">
+        <strong class="span3">Migration Date</strong>
+        <span>@Model.UserMigrationInfo.MigratedOn</span>
+    </div>
+}
+
+

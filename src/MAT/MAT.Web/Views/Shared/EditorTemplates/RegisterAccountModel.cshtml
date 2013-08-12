@@ -1,0 +1,106 @@
+﻿@model MAT.Core.InputModels.RegisterAccountModel
+
+<h2>Account Information</h2>
+<div class="control-group">
+    @Html.LabelFor(m=>m.Email, "What is your {0}?", new{@class="control-label"}, "email")
+    <div class="controls">
+        @Html.TextBoxFor(
+            m => m.Email,
+            new { @class = "input-large", placeholder = "example@email.com", data_bind = "value: account.email" })
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+</div>
+<div class="control-group">
+    <div class="controls">
+        @Html.LabelFor(m=>m.ConfirmEmail, "Confirm your e-mail", new{@class="nojavascript"})
+        <label class="" for="AccountInfo_ConfirmEmail">Confirm your e-mail</label>
+        @Html.TextBoxFor(
+                m => m.ConfirmEmail,
+                new { @class = "input-large", placeholder = "please re-enter your email", data_bind = "value: account.confirmEmail" })
+        @Html.ValidationMessageFor(m => m.ConfirmEmail)
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(m=>m.Password, "Please create a {0}?", new{@class="control-label"}, "password")
+    <div class="controls">
+        @Html.PasswordFor(
+            m => m.Password,
+            new { @class = "input-large", placeholder = "must be at least 8 characters", data_bind = "value: account.password" })
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(m=>m.FirstName, "What is your {0}?", new{@class="control-label"}, "shipping information")
+    <div class="controls">
+        @Html.LabelFor(m => m.FirstName, new { @class = "nojavascript" })
+        @Html.TextBoxFor(
+                m => m.FirstName,
+                new { @class = "input-large", placeholder = "first name", data_bind = "value: account.firstName" })
+        @Html.ValidationMessageFor(m => m.FirstName)
+    </div>
+</div>
+<div class="control-group">
+    <div class="controls">
+        @Html.LabelFor(m => m.LastName, new { @class = "nojavascript" })
+        @Html.TextBoxFor(
+                m => m.LastName,
+                new { @class = "input-large", placeholder = "last name", data_bind = "value: account.lastName" })
+        @Html.ValidationMessageFor(m => m.LastName)
+    </div>
+</div>
+<div class="control-group">
+    <div class="controls">
+        @Html.LabelFor(m => m.Street1, new { @class = "nojavascript" })
+        @Html.TextBoxFor(
+                m => m.Street1,
+                new { @class = "input-large", placeholder = "street address", data_bind = "value: account.street1" })
+        @Html.ValidationMessageFor(m => m.Street1)
+    </div>
+</div>
+<div class="control-group">
+    <div class="controls">
+        @Html.LabelFor(m => m.Street2, new { @class = "nojavascript" })
+        @Html.TextBoxFor(
+                m => m.Street2,
+                new { @class = "input-large", placeholder = "street address", data_bind = "value: account.street2" })
+        @Html.ValidationMessageFor(m => m.Street2)
+    </div>
+</div>
+<div class="control-group">
+    <div class="controls">
+        @Html.LabelFor(m => m.City, new { @class = "nojavascript" })
+        @Html.TextBoxFor(
+                m => m.City,
+                new { @class = "City", placeholder = "city", data_bind = "value: account.city" })
+        @Html.ValidationMessageFor(m => m.City)
+    </div>
+</div>
+<div class="control-group">
+    <div class="controls">
+        @Html.LabelFor(m => m.Province, new { @class = "nojavascript" })
+        @Html.DropDownListFor(
+                m => m.Province,
+                (SelectList)ViewBag.Provinces,
+                "Select a Province",
+                new { @class = "input-large", data_bind = "value: account.province" })
+        @Html.ValidationMessageFor(m => m.Province)
+    </div>
+</div>
+<div class="control-group">
+    <div class="controls">
+        @Html.LabelFor(m => m.PostalCode, new { @class = "nojavascript" })
+        @Html.TextBoxFor(
+                m => m.PostalCode,
+                new { @class = "input-large", placeholder = "postal code", data_bind = "value: account.postalCode" })
+        @Html.ValidationMessageFor(m => m.PostalCode)
+    </div>
+</div>
+<div class="control-group">
+    <div class="controls">
+        @Html.LabelFor(m => m.Phone, new { @class = "nojavascript" })
+        @Html.TextBoxFor(
+                m => m.Phone,
+                new { @class = "input-large", placeholder = "phone (10 digits, no spaces)", data_bind = "value: account.phone" })
+        @Html.ValidationMessageFor(m => m.Phone)
+    </div>
+</div>

@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+@section pageribbon {
+    <div class="ribbon contact">
+        <a class="signup" href="@Url.Action("index", "signup", new { area = "" })" title="Join Now!"></a>
+    </div>
+}
+@section scripts
+{
+    <script type="text/javascript">
+        mixpanel.track('page viewed', { 'page name': document.title, 'url': window.location.pathname });
+    </script>
+}
+<div class="well-large">
+    <p class="intro">
+        <strong>
+            We regret to announce that new signups are currently on hold. If you would like to receive books from Mail A Tale in the future, send us a message below to let us know!
+        </strong>
+    </p>
+
+    <p class="intro">
+        Send us an email, tweet us, or message us with any suggestions, comments or concerns
+        you may have. Want to meet for a chat? Try us – we are easily enticed with coffee.
+    </p>
+
+    <p class="intro">
+        Publishers &amp; media contacts – send us an email through our contact form if you’re
+        interested in a media kit or information about being included in our next package.
+    </p>
+</div>
+<div class="row">
+    <div class="span3 contact-social">
+        <div class="well">
+            <h2>Twitter</h2>
+            <a href="http://twitter.com/mailatale" target="_blank">@@Mailatale</a>
+            <h2>Facebook</h2>
+            <a href="http://www.facebook.com/mailatale" target="_blank">Mailatale Facebook Fan Page</a>
+            <h2>Blog</h2>
+            <a href="http://www.pinterest.com/mailatale" target="_blank">Follow us</a>
+        </div>
+    </div>
+    <div class="span8 offset1 contact-mail">
+        <div class="well">
+            <h2>Send us a message</h2>
+            @{ Html.BeginForm("contactsubmit", "home", FormMethod.Post); }
+            @Html.Raw(ViewBag.Result)
+            <fieldset>
+                <div class="control-group">
+                    <label for="email">Enter your e-mail</label>    
+                    <div class="controls">
+                        <input type="email" class="input-large" name="email" />        
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label for="name">
+                        Enter your name</label>
+                    <div class="controls">
+                        <input type="text" class="input-large" name="name" />        
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="subject" >
+                        Subject</label>
+                    <div class="controls">
+                        <select id="subject" name="subject">
+                            <option>General Inquiry</option>
+                            <option>Media & Publisher Contacts</option>
+                            <option>My Account</option>
+                        </select>        
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="message">
+                        Message</label>
+                    <div class="controls">
+                        <textarea class="input-xlarge" id="message" name="message" rows="3"></textarea>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-continue">Send</button>
+            </fieldset>
+            @{ Html.EndForm(); }
+        </div>
+    </div>
+</div>

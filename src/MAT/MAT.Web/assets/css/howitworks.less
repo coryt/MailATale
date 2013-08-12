@@ -1,0 +1,131 @@
+@import "variables";
+@import "subscriptions";
+/* how it works */
+h3
+{
+    font-family: 'Populaire';
+    text-transform: uppercase;
+    color: @matblue;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+ul
+{
+    list-style: none;
+    margin: 0;
+}
+
+p
+{
+    color: @matblue;
+}
+
+.gray
+{
+    color: @gray;
+}
+
+.down,
+.up
+{
+    height: 7px;
+    border: none !important;
+    margin: 0 0 0 22px;
+    width: 960px;
+}
+
+.up
+{
+    background: url(../img/signup/DividerFadeDown.png) no-repeat 0px 0px;
+}
+
+.down
+{
+    background: url(../img/signup/DividerFadeUp.png) no-repeat 0px -5px;
+}
+section.subscription
+{
+	.details .separator 
+	{
+		height: 322px;
+		padding: 0px 45px;
+
+		img{
+			height: 324px;
+		}
+	}
+}
+section.howitworks
+{
+    margin: 10px 0 55px 0;
+    padding: 19px;
+
+    img
+    {
+        text-align: left;
+        float: right;
+        margin-top: -85px;
+    }
+
+    .thumbnails
+    {
+        .thumbnail
+        {
+            border: none;
+            box-shadow: none;
+        }
+
+        h3
+        {
+            margin: 3px;
+            text-align: center;
+            width: 100%;
+            border: none;
+            font-size: 15px;
+            color: inherit;
+            text-transform: inherit;
+        }
+
+        .book-separator
+        {
+            line-height: 12;
+            margin-left: 50px;
+            margin-right: -10px;
+            color: @matorange;
+        }
+    }
+}
+
+ul.comparebooks
+{
+    background: url(../img/howitworks/ThreeBooks.jpg) no-repeat;
+    height: 100px;
+    width: 863px;
+    padding-top: 439px;
+    list-style: none;
+    margin-top: -69px;
+
+    li
+    {
+        float: left;
+    }
+
+        li.boardback
+        {
+            width: 200px;
+            margin: 0 55px 0 0;
+        }
+
+        li.hardcover
+        {
+            width: 230px;
+            margin: 0 55px;
+        }
+
+        li.softcover
+        {
+            width: 200px;
+            margin: 0 0 0 50px;
+        }
+}

@@ -1,0 +1,77 @@
+﻿@using MAT.Core.Models.Account
+@model GiftRecipientModel
+@{
+    ViewBag.Title = "Redeem";
+}
+@section styles
+{
+    @Styles.Render("~/assets/css/site.css")
+    @Styles.Render("~/assets/css/gift.css")
+}
+@section pageribbon {
+    <div class="ribbon signup">
+    </div>
+}
+@section Scripts {
+    <script type="text/javascript">
+        MAT.Gift.GiftRedeemModel = function(serverModel) {
+            var model = {
+                reader: new MAT.ViewModels.Reader(serverModel.ReaderInfo),
+                account: new MAT.ViewModels.Account(serverModel.AccountInfo)
+            };
+
+            model.canSubmit = ko.computed(function() {
+                return model.reader.continue() && model.account.continue();
+            });
+
+            return model;
+        };
+
+        $().ready(function () {
+            $('.nojavascript').hide();
+
+            MAT.KnockoutBindings.Init();
+            MAT.Lists = {
+                relationships: @Html.RawJson(ViewBag.Relationships as SelectList),
+                days: @Html.RawJson(ViewBag.Days as SelectList),
+                months: @Html.RawJson(ViewBag.Months as SelectList),
+                years: @Html.RawJson(ViewBag.Years as SelectList),
+                genders: @Html.RawJson(ViewBag.Genders as SelectList),
+                gradeLevels: @Html.RawJson(ViewBag.GradeLevels as SelectList),
+                readingLevels: @Html.RawJson(ViewBag.ReadingLevels as SelectList),
+                provinces: @Html.RawJson(ViewBag.Provinces as SelectList),
+                preferenceQuestions: @Html.RawJson(ViewBag.PreferenceQuestions as List<PreferenceQuestion>)
+            };
+            var model = new MAT.Gift.GiftRedeemModel(@Html.RawJson(Model));
+            ko.applyBindings(model);
+        });
+    </script>
+}
+
+@{ Html.EnableClientValidation(false); /* interferes with knockout... */ }
+
+<div class="notifier"></div>
+@if (TempData["ErrorMessage"] != null) {
+    <div class="alert alert-error">@TempData["ErrorMessage"]</div>
+}
+@Html.ValidationSummary(null, new { @class="alert alert-error" })
+@using (Html.BeginForm("Redeem", "Gift", FormMethod.Post, new { id = "signupform", @class = "signup" }))
+{
+    Html.RenderPartial("_ReaderForm");
+    Html.RenderPartial("_AccountForm");
+    
+    @Html.HiddenFor(m => m.GiftPurchaseId)
+
+    <script id="customMessageTemplate" type="text/html">
+        <em class="customMessage" data-bind='validationMessage: field'></em>
+    </script>
+    
+    <div data-bind="fadeVisible: !canSubmit()" class="section-error">
+        Please complete all required fields above
+    </div>
+    
+    <div data-bind="fadeVisible: canSubmit()">
+        <button type="submit" class="btn btn-primary" value="Redeem">Submit</button>
+    </div>
+}
+

@@ -1,0 +1,24 @@
+﻿@model AddressModel
+
+@Html.HiddenFor(m=>m.AddressType, new { data_bind = "value: order.billingAddress.addressType" })
+<div class="control-group">
+    @Html.LabelFor(m => m.Street1, "What is your {0}?", new { @class = "control-label" }, "billing address")
+    <div class="controls">
+        @Html.TextBoxFor(m => m.Street1, new { @class = "input-large", placeholder = "street address", data_bind = "value: order.billingAddress.street1" })
+    </div>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.Street2, new { @class = "input-large", placeholder = "street address", data_bind = "value: order.billingAddress.street2" })
+    </div>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.City, new { @class = "input-large", placeholder = "city", data_bind = "value: order.billingAddress.city" })
+    </div>
+    <div class="controls">
+        @Html.DropDownListFor(m => m.Province, (SelectList)ViewBag.Provinces, new { @class = "input-large", @data_bind = "options: MAT.Lists.provinces, optionsValue: 'Value', optionsText: 'Text', optionsCaption: 'Select a Province', value: order.billingAddress.province" })
+    </div>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.PostalCode, new { @class = "input-large", placeholder = "postal code", data_bind = "value: order.billingAddress.postalCode" })
+    </div>
+    <div class="controls">
+        @Html.TextBoxFor(m => m.Phone, new { @class = "input-large", placeholder = "phone (10 digits, no spaces)", data_bind = "value: order.billingAddress.phone" })
+    </div>
+</div>

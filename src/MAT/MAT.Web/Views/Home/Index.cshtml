@@ -1,0 +1,55 @@
+@{
+    ViewBag.Title = "Home Page";
+}
+@section scripts
+{
+    <script type="text/javascript"> var _kiq = _kiq || []; </script>
+    <script type="text/javascript" src="//s3.amazonaws.com/ki.js/31096/639.js" async="true"> </script>
+    <script type="text/javascript">
+        _kiq.push(['identify', 'MTALE04122012']);
+        //mixpanel.track('page viewed', { 'page name': document.title, 'url': window.location.pathname });
+    </script>
+}
+
+@section pageribbon {
+    <div class="ribbon home">
+        <a class="joinnow" href="@Url.Action("index", "signup", new { area = "" })" title="Join Now!"></a>
+        <a class="giftnow" href="@Url.Action("index", "gift", new { area = "" })" title="Gift a Gift!"></a>
+        <span class="learnmore"><a href="@Url.Action("howitworks", "home", new { area = "" })" title="">Learn more</a></span>
+        <span class="signup"><a href="@Url.Action("index", "signup", new { area = "" })" title="Join Now!">Fill out your reading profile now!</a></span>
+    </div>
+}
+<div class="signup-steps">
+    <div class="container">
+        <div class="row">
+            <div class="span4 howitworks">
+                <img src="~/assets/img/ribbons/123.png"/>
+                <h4>How it Works</h4>
+                <p>
+                    Customize your box & discover books
+                </p>
+                @Html.ActionLink("Learn more", "howitworks", "home")
+            </div>
+            <div class="span4 gift">
+                <img src="~/assets/img/ribbons/GiftBoxes.png"/>
+                <h4>The Best Gift</h4>
+                <p>
+                    Perfect for birthdays & holidays
+                </p>
+                @Html.ActionLink("Give a gift today!", "index", "gift")
+            </div>
+            <div class="span4 signup">
+                <img src="~/assets/img/ribbons/Boxes.png"/>
+                <h4>Sign Up Now</h4>
+                <p>
+                    Fill out your reading profile to begin
+                </p>
+                @Html.ActionLink("Get started today!", "index", "signup")
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class=" featuredin">
+        <img src="~/assets/img/Press.jpg" alt="Featured In" />
+    </div>

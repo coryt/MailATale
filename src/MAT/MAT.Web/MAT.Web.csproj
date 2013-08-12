@@ -1,0 +1,758 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DDD19C28-59BB-4F34-9406-C4C74CD2D8AA}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MAT.Web</RootNamespace>
+    <AssemblyName>MAT.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PublishDatabases>false</PublishDatabases>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.3.1.7705, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Castle.Core.3.1.0\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.Logging, Version=3.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Castle.LoggingFacility.3.1.0\lib\net40\Castle.Facilities.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Services.Logging.NLogIntegration, Version=3.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Castle.Core-NLog.3.1.0\lib\net40-client\Castle.Services.Logging.NLogIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Castle.Windsor.3.1.0\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions">
+      <HintPath>..\packages\DataAnnotationsExtensions.1.1.0.0\lib\NETFramework40\DataAnnotationsExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Esent.Interop">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\Esent.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=3.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentValidation.3.4.6.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation.Mvc, Version=3.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentValidation.MVC4.3.4.6.0\lib\Net40\FluentValidation.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\FSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoAPI">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\ICSharpCode.NRefactory.dll</HintPath>
+    </Reference>
+    <Reference Include="Loggly">
+      <HintPath>..\packages\loggly-csharp.2.1\lib\net35\Loggly.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Spatial.NTS">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\Lucene.Net.Contrib.Spatial.NTS.dll</HintPath>
+    </Reference>
+    <Reference Include="Mandrill.API, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Mandrill.API.0.0.2\lib\net40\Mandrill.API.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Administration, Version=7.9.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Windows\System32\inetsrv\Microsoft.Web.Administration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc">
+      <HintPath>..\packages\Mvc2Futures.2.0.50217.0\lib\Microsoft.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniProfiler">
+      <HintPath>..\packages\MiniProfiler.2.0.2\lib\net40\MiniProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib">
+      <HintPath>..\packages\MvcContrib.2.0.95.0\lib\MvcContrib.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcMiniProfiler.RavenDb">
+      <HintPath>..\packages\MiniProfiler.RavenDb.2.1.0\lib\MvcMiniProfiler.RavenDb.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.9\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog.Targets.Loggly, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NLog.Targets.Loggly.0.2.0\lib\net35\NLog.Targets.Loggly.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog.Targets.Syslog">
+      <HintPath>..\packages\NLog.Targets.Syslog.1.0.0\lib\net20\NLog.Targets.Syslog.dll</HintPath>
+    </Reference>
+    <Reference Include="PowerCollections">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\PowerCollections.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Abstractions, Version=1.2.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Backup">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\Raven.Backup.exe</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight">
+      <HintPath>..\packages\RavenDB.Client.1.2.2085-Unstable\lib\net40\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.MvcIntegration">
+      <HintPath>..\packages\RavenDB.Client.MvcIntegration.1.2.2085-Unstable\lib\net40\Raven.Client.MvcIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Database">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\Raven.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Smuggler">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\Raven.Smuggler.exe</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Spatial4n.Core.NTS">
+      <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\Spatial4n.Core.NTS.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebApiContrib.IoC.CastleWindsor">
+      <HintPath>..\packages\WebApiContrib.IoC.CastleWindsor.0.9.2\lib\net40\WebApiContrib.IoC.CastleWindsor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\CheckForMaintenanceMode.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="App_Start\WindsorConfig.cs" />
+    <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrdersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SubscriptionsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Admin\Models\Filters.cs" />
+    <Compile Include="Areas\Admin\Models\OrderDetailsViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\OrderSummary.cs" />
+    <Compile Include="Areas\Admin\Models\OrderType.cs" />
+    <Compile Include="Areas\Admin\Models\PagedGridFilterModel.cs" />
+    <Compile Include="Areas\Admin\Models\GridFilterSortOptions.cs" />
+    <Compile Include="Areas\Admin\Models\RefKeyValuePair.cs" />
+    <Compile Include="Areas\Admin\Models\UserDetailsViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\UserSummary.cs" />
+    <Compile Include="Controllers\GiftController.cs" />
+    <Compile Include="Controllers\SignUpController.cs" />
+    <Compile Include="Controllers\SignUpHelperController.cs" />
+    <Compile Include="Helpers\Builders\OrderBuilder.cs" />
+    <Compile Include="Helpers\Builders\UserBuilder.cs" />
+    <Compile Include="Helpers\Filters\AdminFilterAttribute.cs" />
+    <Compile Include="Helpers\Filters\AjaxOnlyAttribute.cs" />
+    <Compile Include="Areas\Account\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Account\Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MATController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\HtmlExtensions.cs" />
+    <Compile Include="Helpers\Results\JsonNetResult.cs" />
+    <Compile Include="Infrastructure\Common\DocumentSessionExtensions.cs" />
+    <Compile Include="Infrastructure\EmailProvider\MailChimpMailer.cs" />
+    <Compile Include="Infrastructure\Indexes\GiftPurchaseNotice_DueToday.cs" />
+    <Compile Include="Infrastructure\Indexes\PreferenceQuestions_ByIncludeInSignup.cs" />
+    <Compile Include="Infrastructure\Indexes\UserSubscription_ByUserId.cs" />
+    <Compile Include="Infrastructure\Indexes\Users_ByUserCredentialsEmail.cs" />
+    <Compile Include="Infrastructure\IoC\ControllersInstaller.cs" />
+    <Compile Include="Infrastructure\IoC\LoggerInstaller.cs" />
+    <Compile Include="Infrastructure\IoC\MailerInstaller.cs" />
+    <Compile Include="Infrastructure\IoC\PaymentProviderInstaller.cs" />
+    <Compile Include="Infrastructure\IoC\RavenDBInstaller.cs" />
+    <Compile Include="Infrastructure\IoC\TaskInstaller.cs" />
+    <Compile Include="Infrastructure\IoC\ValidatorInstaller.cs" />
+    <Compile Include="Infrastructure\IoC\WebApiDependencyInstaller.cs" />
+    <Compile Include="Infrastructure\IoC\WebApiWindsorInstaller.cs" />
+    <Compile Include="Infrastructure\IoC\WindsorControllerFactory.cs" />
+    <Compile Include="Infrastructure\IoC\WindsorDependencyResolver.cs" />
+    <Compile Include="Infrastructure\IoC\WindsorDependencyScope.cs" />
+    <Compile Include="Infrastructure\IoC\WindsorFluentValidatorFactory.cs" />
+    <Compile Include="Infrastructure\Tasks\GiftEmailerTask.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CurrentUserViewModel.cs" />
+    <Compile Include="ViewModels\UserInput.cs" />
+    <Compile Include="ViewModels\UserSummaryViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\admin.css">
+      <DependentUpon>admin.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\admin.min.css">
+      <DependentUpon>admin.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\banner.css">
+      <DependentUpon>banner.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\banner.min.css">
+      <DependentUpon>banner.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\bootstrap.css">
+      <DependentUpon>bootstrap.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\bootstrap.min.css">
+      <DependentUpon>bootstrap.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\bootstrap\mixins.css">
+      <DependentUpon>mixins.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\bootstrap\mixins.min.css">
+      <DependentUpon>mixins.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\datepicker.css">
+      <DependentUpon>datepicker.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\datepicker.min.css">
+      <DependentUpon>datepicker.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\datetpicker.css">
+      <DependentUpon>datepicker.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\datetpicker.min.css">
+      <DependentUpon>datepicker.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\gift.css">
+      <DependentUpon>gift.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\gift.min.css">
+      <DependentUpon>gift.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\ko-grid.css">
+      <DependentUpon>ko-grid.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\ko-grid.min.css">
+      <DependentUpon>ko-grid.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\subscriptions.css">
+      <DependentUpon>subscriptions.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\subscriptions.min.css">
+      <DependentUpon>subscriptions.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\footer.css">
+      <DependentUpon>footer.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\footer.min.css">
+      <DependentUpon>footer.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\home.css">
+      <DependentUpon>home.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\subscriptions.less" />
+    <Content Include="assets\css\gift.less" />
+    <Content Include="Areas\Admin\Views\Users\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Pagination.cshtml" />
+    <Content Include="assets\css\admin.less" />
+    <Content Include="Areas\Admin\Views\Shared\DisplayTemplates\Address.cshtml" />
+    <Content Include="assets\css\datepicker.less" />
+    <Content Include="Areas\Admin\Views\Shared\DisplayTemplates\User.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\DisplayTemplates\UserSubscription.cshtml" />
+    <Content Include="Areas\Admin\Views\Subscriptions\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Subscriptions\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\DisplayTemplates\Reader.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\DisplayTemplates\Order.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\DisplayTemplates\GiftPurchase.cshtml" />
+    <None Include="assets\css\home.less">
+      <Compile>True</Compile>
+      <Minify>True</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <Content Include="Areas\Account\Views\Web.config" />
+    <Content Include="Areas\Account\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Account\Views\Settings\Index.cshtml" />
+    <Content Include="Areas\Account\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Account\Views\Shared\_AccountLayout.cshtml" />
+    <Content Include="Areas\Account\Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Areas\Account\Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Areas\Account\Views\Shared\EditorTemplates\MultilineText.cshtml" />
+    <Content Include="Areas\Account\Views\Shared\EditorTemplates\HiddenInput.cshtml" />
+    <Content Include="Areas\Account\Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Areas\Account\Views\Shared\EditorTemplates\Boolean.cshtml" />
+    <Content Include="Areas\Account\Views\Shared\DisplayTemplates\Boolean.cshtml" />
+    <Content Include="Areas\Account\Views\Shared\DisplayTemplates\HiddenInput.cshtml" />
+    <Content Include="Areas\Account\Views\Shared\DisplayTemplates\String.cshtml" />
+    <Content Include="Areas\Account\Views\Shared\EditorTemplates\Address.cshtml" />
+    <Content Include="Areas\Account\Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Areas\Account\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Account\Views\Settings\_ChangePassword.cshtml" />
+    <Content Include="Areas\Account\Views\Settings\_ChangeAccount.cshtml" />
+    <Content Include="Areas\Account\Views\Settings\_Subscriptions.cshtml" />
+    <Content Include="Areas\Account\Views\Settings\_Preferences.cshtml" />
+    <Content Include="Areas\Account\Views\Settings\_ChangeAccountSuccess.cshtml" />
+    <Content Include="Areas\Account\Views\Settings\_ChangePasswordSuccess.cshtml" />
+    <Content Include="Areas\Account\Views\Login\ForgotPassword.cshtml" />
+    <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\Account\Views\Login\ResetPassword.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Default\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\DisplayTemplates\SiteConfig.cshtml" />
+    <Content Include="assets\css\home.min.css">
+      <DependentUpon>home.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\howitworks.css">
+      <DependentUpon>howitworks.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\howitworks.min.css">
+      <DependentUpon>howitworks.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\nav.css">
+      <DependentUpon>nav.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\nav.min.css">
+      <DependentUpon>nav.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\signup.css">
+      <DependentUpon>signup.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\ko-grid.less" />
+    <None Include="assets\css\signup.less" />
+    <Content Include="Areas\Account\Views\Shared\_CreditCardForm.cshtml" />
+    <Content Include="assets\css\signup.min.css">
+      <DependentUpon>signup.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\site.min.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\utilities.css">
+      <DependentUpon>utilities.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\utilities.min.css">
+      <DependentUpon>utilities.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\variables.css">
+      <DependentUpon>variables.less</DependentUpon>
+    </Content>
+    <Content Include="assets\css\variables.min.css">
+      <DependentUpon>variables.less</DependentUpon>
+    </Content>
+    <None Include="assets\css\howitworks.less" />
+    <Content Include="Areas\Admin\Views\Shared\_MessageBox.cshtml" />
+    <None Include="assets\css\site.less">
+      <Compile>True</Compile>
+      <Minify>True</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <Content Include="assets\css\site.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
+    <Content Include="assets\img\about\ADM.jpg" />
+    <Content Include="assets\img\about\Cory.jpg" />
+    <Content Include="assets\img\chosen-sprite.png" />
+    <Content Include="assets\img\about\favourite-book-growing-up.gif" />
+    <Content Include="assets\img\about\favourite-book-today.gif" />
+    <Content Include="assets\img\footer\big-p-button.png" />
+    <Content Include="assets\img\footer\Footer.jpg" />
+    <Content Include="assets\img\FullSideFade.gif" />
+    <Content Include="assets\img\header\Arrow.png" />
+    <Content Include="assets\img\header\Logo.png" />
+    <Content Include="assets\img\header\Pintrest.png" />
+    <Content Include="assets\img\howitworks\Birds.jpg" />
+    <Content Include="assets\img\howitworks\Dash.jpg" />
+    <Content Include="assets\img\howitworks\ShippingPop.png" />
+    <Content Include="assets\img\howitworks\ThreeBooks.jpg" />
+    <Content Include="assets\img\howitworks\Penguin.png" />
+    <Content Include="assets\img\howitworks\SignUp.png" />
+    <Content Include="assets\img\howitworks\White_Shipping.png" />
+    <Content Include="assets\img\LeftSideFade.gif" />
+    <Content Include="assets\img\Press.jpg" />
+    <Content Include="assets\img\howitworks\Boxes.png" />
+    <Content Include="assets\img\howitworks\CTA.jpg" />
+    <Content Include="assets\img\howitworks\HardcoverBook.jpg" />
+    <Content Include="assets\img\howitworks\SoftcoverBooks.jpg" />
+    <Content Include="assets\img\ribbons\123.png" />
+    <Content Include="assets\img\ribbons\AboutStage.jpg" />
+    <Content Include="assets\img\ribbons\Books.png" />
+    <Content Include="assets\img\howitworks\TypeBoard.jpg" />
+    <Content Include="assets\img\howitworks\TypeHard.jpg" />
+    <Content Include="assets\img\howitworks\TypeSoft.jpg" />
+    <Content Include="assets\img\ribbons\BookBox.png" />
+    <Content Include="assets\img\ribbons\Boxes.png" />
+    <Content Include="assets\img\ribbons\ContactStage.jpg" />
+    <Content Include="assets\img\ribbons\FAQStage.jpg" />
+    <Content Include="assets\img\ribbons\GenericStage.jpg" />
+    <Content Include="assets\img\ribbons\Gift.png" />
+    <Content Include="assets\img\ribbons\GiftBoxes.png" />
+    <Content Include="assets\img\ribbons\GiftStage.jpg" />
+    <Content Include="assets\img\ribbons\HomeStage.jpg" />
+    <Content Include="assets\img\ribbons\SignUp.png" />
+    <Content Include="assets\img\ribbons\SignUpStage.jpg" />
+    <Content Include="assets\img\ribbons\HowItWorksStage.jpg" />
+    <Content Include="assets\img\ribbons\ThankYouStage.jpg" />
+    <Content Include="assets\img\ribbons\TodaysParent.png" />
+    <Content Include="assets\img\header\TopTexture.jpg" />
+    <Content Include="assets\img\RightSideFade.gif" />
+    <Content Include="assets\img\signup\BasicBTN.png" />
+    <Content Include="assets\img\signup\BoardbackBooks.png" />
+    <Content Include="assets\img\signup\Checkmark.png" />
+    <Content Include="assets\img\signup\Dash.jpg" />
+    <Content Include="assets\img\signup\DividerFadeDown.png" />
+    <Content Include="assets\img\signup\DividerFadeUp.png" />
+    <Content Include="assets\img\signup\FreeShipping.png" />
+    <Content Include="assets\img\signup\Penguin.png" />
+    <Content Include="assets\img\signup\PlaceOrder.png" />
+    <Content Include="assets\img\signup\PlusBTN.png" />
+    <Content Include="assets\img\signup\SoftcoverBooks.png" />
+    <Content Include="assets\img\about\why-i-do-what-i-do.gif" />
+    <Content Include="assets\img\signup\spacer.gif" />
+    <Content Include="assets\js\application.js" />
+    <Content Include="assets\js\bootstrap-datepicker.js" />
+    <Content Include="assets\js\gift.js" />
+    <Content Include="assets\js\knockout.mapping.js" />
+    <Content Include="assets\js\jquery.placeholder.min.js" />
+    <Content Include="assets\js\knockout.validation.js" />
+    <Content Include="assets\js\knockout_custom_bindings.js" />
+    <Content Include="assets\js\mat_models.js" />
+    <Content Include="assets\js\notifier.js" />
+    <Content Include="assets\js\signup.js" />
+    <Content Include="assets\js\utility.js" />
+    <Content Include="MiniProfiler.RavenDb.Readme.txt" />
+    <Content Include="assets\img\about\anila.jpg" />
+    <Content Include="assets\img\about\anthony.jpg" />
+    <Content Include="assets\img\about\heather.jpg" />
+    <Content Include="assets\img\bullet.png" />
+    <Content Include="assets\img\close.png" />
+    <Content Include="assets\img\dot-sprite.png" />
+    <Content Include="assets\img\ErrorImage.JPG" />
+    <Content Include="assets\img\footer\copyright-logo.gif" />
+    <Content Include="assets\img\footer\facebook.gif" />
+    <Content Include="assets\img\footer\twitter.gif" />
+    <Content Include="assets\img\glyphicons-halflings-white.png" />
+    <Content Include="assets\img\glyphicons-halflings.png" />
+    <Content Include="assets\img\mailatale_favico.ico" />
+    <Content Include="assets\img\preload.gif" />
+    <Content Include="assets\js\AjaxLogin.js" />
+    <Content Include="assets\css\variables.less" />
+    <None Include="assets\css\nav.less">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <None Include="assets\css\banner.less">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <None Include="assets\css\footer.less">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="assets\js\knockout.grid.js" />
+    <Content Include="assets\fonts\Brandon_bld.otf" />
+    <Content Include="assets\fonts\Brandon_bld_it.otf" />
+    <Content Include="assets\fonts\Brandon_blk_it.otf" />
+    <Content Include="assets\fonts\Brandon_light.otf" />
+    <Content Include="assets\fonts\Brandon_light_it.otf" />
+    <Content Include="assets\fonts\Brandon_med.otf" />
+    <Content Include="assets\fonts\Brandon_med_it.otf" />
+    <Content Include="assets\fonts\Brandon_reg_it.otf" />
+    <Content Include="assets\fonts\Brandon_thin.otf" />
+    <Content Include="assets\fonts\Brandon_thin_it.otf" />
+    <Content Include="assets\fonts\webfonts\2414D4_0_0.eot" />
+    <Content Include="assets\fonts\webfonts\2414D4_0_0.woff" />
+    <Content Include="assets\fonts\webfonts\2414D4_0_unhinted_0.woff" />
+    <Content Include="assets\fonts\webfonts\2414D4_1_0.eot" />
+    <Content Include="assets\fonts\webfonts\2414D4_1_0.woff" />
+    <Content Include="assets\fonts\webfonts\2414D4_1_unhinted_0.woff" />
+    <Content Include="assets\css\utilities.less" />
+    <Content Include="assets\css\bootstrap\wells.less" />
+    <Content Include="assets\css\bootstrap\type.less" />
+    <Content Include="assets\css\bootstrap\tooltip.less" />
+    <Content Include="assets\css\bootstrap\thumbnails.less" />
+    <Content Include="assets\css\bootstrap\tables.less" />
+    <Content Include="assets\css\bootstrap\sprites.less" />
+    <Content Include="assets\css\bootstrap\scaffolding.less" />
+    <Content Include="assets\css\bootstrap\responsive-utilities.less" />
+    <Content Include="assets\css\bootstrap\responsive-navbar.less" />
+    <Content Include="assets\css\bootstrap\responsive-768px-979px.less" />
+    <Content Include="assets\css\bootstrap\responsive-767px-max.less" />
+    <Content Include="assets\css\bootstrap\responsive-1200px-min.less" />
+    <Content Include="assets\css\bootstrap\responsive.less" />
+    <Content Include="assets\css\bootstrap\reset.less" />
+    <Content Include="assets\css\bootstrap\progress-bars.less" />
+    <Content Include="assets\css\bootstrap\popovers.less" />
+    <Content Include="assets\css\bootstrap\pagination.less" />
+    <Content Include="assets\css\bootstrap\pager.less" />
+    <Content Include="assets\css\bootstrap\navs.less" />
+    <Content Include="assets\css\bootstrap\navbar.less" />
+    <Content Include="assets\css\bootstrap\modals.less" />
+    <Content Include="assets\css\bootstrap\mixins.less" />
+    <Content Include="assets\css\bootstrap\layouts.less" />
+    <Content Include="assets\css\bootstrap\labels-badges.less" />
+    <Content Include="assets\css\bootstrap\hero-unit.less" />
+    <Content Include="assets\css\bootstrap\grid.less" />
+    <Content Include="assets\css\bootstrap\forms.less" />
+    <Content Include="assets\css\bootstrap\dropdowns.less" />
+    <Content Include="assets\css\bootstrap\component-animations.less" />
+    <Content Include="assets\css\bootstrap\code.less" />
+    <Content Include="assets\css\bootstrap\close.less" />
+    <Content Include="assets\css\bootstrap\carousel.less" />
+    <Content Include="assets\css\bootstrap\buttons.less" />
+    <Content Include="assets\css\bootstrap\button-groups.less" />
+    <Content Include="assets\css\bootstrap\breadcrumbs.less" />
+    <Content Include="assets\css\bootstrap.less" />
+    <Content Include="assets\css\bootstrap\alerts.less" />
+    <Content Include="assets\css\bootstrap\accordion.less" />
+    <Content Include="Views\Error\404.htm" />
+    <Content Include="Views\Error\500.htm" />
+    <Content Include="maintenance.htm" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Shared\_HomeLayout.cshtml" />
+    <Content Include="assets\js\spin.min.js" />
+    <Content Include="Views\Home\HowItWorks.cshtml" />
+    <Content Include="Views\Gift\Index.cshtml" />
+    <Content Include="Views\Gift\Redeem.cshtml" />
+    <Content Include="Views\Gift\_AccountForm.cshtml" />
+    <Content Include="Views\Gift\_GiftPayment.cshtml" />
+    <Content Include="Views\Gift\_GiftSelection.cshtml" />
+    <Content Include="Views\Gift\_GiftOrderSummary.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\PaymentInfoModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AddressModel.cshtml" />
+    <Content Include="Views\Gift\_ReaderForm.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ReaderPreferences.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\RegisterAccountModel.cshtml" />
+    <Content Include="Views\SignUp\_AccountForm.cshtml" />
+    <Content Include="Views\SignUp\_OrderSummary.cshtml" />
+    <Content Include="Views\SignUp\_PaymentForm.cshtml" />
+    <Content Include="Views\SignUp\_ReaderForm.cshtml" />
+    <Content Include="Views\SignUp\Index.cshtml" />
+    <Content Include="Views\SignUp\ThankYou.cshtml" />
+    <Content Include="Views\Gift\ThankYou.cshtml" />
+    <Content Include="assets\img\Detailed Holiday Card.pdf" />
+    <None Include="Properties\PublishProfiles\mailatale - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\mailatale - Web Deploy.pubxml" />
+    <None Include="Web.Staging.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Faq.cshtml" />
+    <Content Include="Views\Home\Privacy.cshtml" />
+    <Content Include="Views\Home\Terms.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\fonts\brandon_blk.eot" />
+    <Content Include="assets\fonts\Brandon_blk.otf" />
+    <Content Include="assets\fonts\brandon_blk.ttf" />
+    <Content Include="assets\fonts\brandon_reg.eot" />
+    <Content Include="assets\fonts\Brandon_reg.otf" />
+    <Content Include="assets\fonts\brandon_reg.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MAT.Core\MAT.Core.csproj">
+      <Project>{B60FF3CC-0F5D-43A5-A4E7-DB31DDEB2037}</Project>
+      <Name>MAT.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

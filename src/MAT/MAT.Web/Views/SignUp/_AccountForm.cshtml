@@ -1,0 +1,12 @@
+@model SignUpModel
+
+<fieldset data-bind="fadeVisible: numberOfReaders() > 0 && order.lines()[numberOfReaders()-1].reader.continue()" class="well">
+    <legend class="low">2 Your account & billing information</legend>
+    <!-- ko with: order -->
+    @Html.EditorFor(m=>m.Account)
+    <!-- /ko -->
+    <div data-bind="fadeVisible:!order.account.continue()" class="section-error">
+        Please complete all required fields above to continue
+    </div>
+    @{ Html.RenderPartial("_PaymentForm"); }
+</fieldset>

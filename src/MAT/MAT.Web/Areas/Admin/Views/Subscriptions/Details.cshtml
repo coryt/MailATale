@@ -1,0 +1,16 @@
+﻿@using System.Web.Optimization
+@using MAT.Web.Areas.Admin.Models
+@using MAT.Core.Models.Subscription
+@model UserSubscription
+@{
+    ViewBag.Title = "Admin - " + Model.Id;
+}
+@section pageribbon {
+    <div class="ribbon">
+        <h1>Manage Subscriptions</h1>
+    </div>
+}
+
+<h1 style="text-align: center">@Model.Id</h1>
+
+@Html.DisplayForModel()

@@ -1,0 +1,51 @@
+﻿@model PaymentInfoModel
+
+<div class="control-group">
+    @Html.LabelFor(m => m.CreditCardName, new {@class = "control-label"})
+    <div class="controls">
+        @Html.TextBoxFor(m => m.CreditCardName, new {@class = "input-large"})
+        @Html.ValidationMessageFor(m => m.CreditCardName)
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(m => m.CreditCardNumber, new {@class = "control-label"})
+    <div class="controls">
+        @Html.TextBoxFor(m => m.CreditCardNumber, new {@class = "input-large"})
+        @Html.ValidationMessageFor(m => m.CreditCardNumber)
+    </div>
+</div>
+<div class="control-group pull-left">
+    @Html.LabelFor(m => m.CreditCardExpiryMonth, new {@class = "control-label"})
+    <div class="controls">
+        @Html.DropDownListFor(m => m.CreditCardExpiryMonth, new SelectList(new[]
+            {
+                new SelectListItem {Text = "01 - Jan", Value = "01"},
+                new SelectListItem {Text = "02 - Feb", Value = "02"},
+                new SelectListItem {Text = "03 - Mar", Value = "03"},
+                new SelectListItem {Text = "04 - Apr", Value = "04"},
+                new SelectListItem {Text = "05 - May", Value = "05"},
+                new SelectListItem {Text = "06 - Jun", Value = "06"},
+                new SelectListItem {Text = "07 - Jul", Value = "07"},
+                new SelectListItem {Text = "08 - Aug", Value = "08"},
+                new SelectListItem {Text = "09 - Sept", Value = "09"},
+                new SelectListItem {Text = "10 - Oct", Value = "10"},
+                new SelectListItem {Text = "11 - Nov", Value = "11"},
+                new SelectListItem {Text = "12 - Dec", Value = "12"}
+            }, "Value", "Text"), new {@class = "input-small"})
+        @Html.ValidationMessageFor(m => m.CreditCardExpiryMonth)
+    </div>
+</div>
+<div class="control-group pull-left span3">
+    @Html.LabelFor(m => m.CreditCardExpiryYear, new {@class = "control-label"})
+    <div class="controls">
+        @Html.DropDownListFor(m => m.CreditCardExpiryYear, new SelectList(Enumerable.Range(DateTime.Now.Year, 6)), new {@class = "input-small"})
+        @Html.ValidationMessageFor(m => m.CreditCardExpiryYear)
+    </div>
+</div>
+<div class="control-group clear-fix">
+    @Html.LabelFor(m => m.CreditCardSecurityCode, new {@class = "control-label"})
+    <div class="controls">
+        @Html.TextBoxFor(m => m.CreditCardSecurityCode, new {@class = "input-small"})
+        @Html.ValidationMessageFor(m => m.CreditCardSecurityCode)
+    </div>
+</div>

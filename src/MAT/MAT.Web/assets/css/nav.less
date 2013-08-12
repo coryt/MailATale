@@ -1,0 +1,77 @@
+﻿@import "variables";
+
+/* --- header --- */
+header
+{
+    background: url(../img/header/TopTexture.jpg) repeat-x top center;
+    float: left;
+    height: 66px;
+    position: relative;
+    width: 940px;
+    z-index: 1;
+}
+
+.logo
+{
+    float: left;
+    width: 169px;
+
+    a
+    {
+        background: url('../img/header/Logo.png') no-repeat top center;
+        display: block;
+        height: 145px;
+        margin: -23px 20px;
+        text-indent: -9999px;
+        width: 150px;
+    }
+}
+/* navigation */
+nav
+{
+    font-family: 'Brandon Grotesque Regular';
+    font-size: 16px;
+    padding: 29px 0 0;
+
+    ul
+    {
+        list-style: none;
+
+        li
+        {
+            float: left;
+            padding: 0 10px;
+        }
+    }
+
+    a#login
+    {
+        color: @matblue;
+    }
+
+    a
+    {
+        color: @matorange;
+    }
+
+        a:hover
+        {
+            background-color: inherit !important;
+            color: @matorange;
+            text-decoration: none;
+        }
+}
+
+a.samples
+{
+    background: url(../img/header/Pintrest.png) no-repeat top center;
+    height: 71px;
+    margin: -35px 10px 0 0;
+    text-indent: -9999px;
+    width: 123px;
+}
+
+.nudge-right
+{
+    margin-left: 40px;
+}

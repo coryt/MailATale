@@ -1,0 +1,213 @@
+section.subscription .heading-alt,
+section.subscription .heading {
+  position: relative;
+  height: 120px;
+  padding: 19px;
+}
+section.subscription .heading-alt p,
+section.subscription .heading p {
+  width: 600px;
+  font-size: 16px;
+}
+section.subscription .heading-alt .penguin,
+section.subscription .heading .penguin {
+  background: url(../img/howitworks/Penguin.png) no-repeat;
+  position: absolute;
+  left: 600px;
+  top: 80px;
+  height: 100px;
+  width: 265px;
+}
+section.subscription .details {
+  height: auto;
+}
+section.subscription .details .subscription-info {
+  text-align: center;
+  margin: 0;
+  padding: 5px 0 20px;
+  background-color: #f8fcfe;
+  position: relative;
+}
+section.subscription .details .subscription-info .box-selected-basic,
+section.subscription .details .subscription-info .box-selected-plus {
+  background: url(../img/signup/Checkmark.png) no-repeat;
+  height: 10px;
+  width: 13px;
+}
+section.subscription .details .subscription-info .price {
+  color: #f45905;
+  width: 92px;
+  margin: 15px auto;
+  text-align: right;
+}
+section.subscription .details .subscription-info .price span {
+  font-size: 30px;
+  display: block;
+}
+section.subscription .details .subscription-info .calculate-shipping {
+  margin-bottom: 32px;
+  display: block;
+  cursor: pointer;
+}
+section.subscription .details .subscription-info .shipping-fee {
+  font-size: 12px;
+  color: #747474;
+}
+section.subscription .details .subscription-info .modal {
+  background: url(../img/howitworks/ShippingPop.png) no-repeat;
+  width: 229px;
+  height: 177px;
+  border: none;
+  border-radius: inherit;
+  box-shadow: none;
+  position: absolute;
+  top: 230px;
+  left: 400px;
+  text-align: left;
+  overflow: hidden;
+  outline: 0;
+}
+section.subscription .details .subscription-info .modal .modal-header {
+  border: none;
+  padding: 2px 15px;
+}
+section.subscription .details .subscription-info .modal .modal-body p {
+  color: #104d66;
+}
+section.subscription .details .subscription-info .modal .modal-body input {
+  width: 80px;
+  margin-bottom: 0;
+}
+section.subscription .details .subscription-info .modal .modal-body div.shipping-result {
+  color: #747474;
+}
+section.subscription .details .subscription-info .modal .modal-body div.shipping-result span.fee {
+  color: #104d66;
+}
+section.subscription .details .subscription-info .free-shipping {
+  background: url(../img/howitworks/White_Shipping.png) no-repeat;
+  height: 62px;
+  width: 222px;
+  margin: 10px auto;
+}
+section.subscription .details .subscription-info ul {
+  margin-top: 10px;
+  color: #104d66;
+}
+section.subscription .details .subscription-info ul li:first-child {
+  margin: 10px 0;
+  color: #8b8326;
+  font-size: 14px;
+  font-weight: bold;
+}
+section.subscription .details .subscription-info ul li {
+  margin: 5px 0;
+}
+section.subscription .details .separator {
+  margin-left: 0;
+  width: auto;
+  padding: 9px 45px;
+  background-color: #f8fcfe;
+}
+section.subscription .frequency-alt,
+section.subscription .frequency {
+  height: 50px;
+  color: #104d66;
+  font-size: 14px;
+  line-height: 3.75;
+}
+section.subscription .frequency-alt input,
+section.subscription .frequency input {
+  margin: 0;
+  width: 25px;
+  height: 22px;
+}
+/* how it works */
+h3 {
+  font-family: 'Populaire';
+  text-transform: uppercase;
+  color: #104d66;
+  font-weight: bold;
+  font-size: 32px;
+}
+ul {
+  list-style: none;
+  margin: 0;
+}
+p {
+  color: #104d66;
+}
+.gray {
+  color: #747474;
+}
+.down,
+.up {
+  height: 7px;
+  border: none !important;
+  margin: 0 0 0 22px;
+  width: 960px;
+}
+.up {
+  background: url(../img/signup/DividerFadeDown.png) no-repeat 0px 0px;
+}
+.down {
+  background: url(../img/signup/DividerFadeUp.png) no-repeat 0px -5px;
+}
+section.subscription .details .separator {
+  height: 322px;
+  padding: 0px 45px;
+}
+section.subscription .details .separator img {
+  height: 324px;
+}
+section.howitworks {
+  margin: 10px 0 55px 0;
+  padding: 19px;
+}
+section.howitworks img {
+  text-align: left;
+  float: right;
+  margin-top: -85px;
+}
+section.howitworks .thumbnails .thumbnail {
+  border: none;
+  box-shadow: none;
+}
+section.howitworks .thumbnails h3 {
+  margin: 3px;
+  text-align: center;
+  width: 100%;
+  border: none;
+  font-size: 15px;
+  color: inherit;
+  text-transform: inherit;
+}
+section.howitworks .thumbnails .book-separator {
+  line-height: 12;
+  margin-left: 50px;
+  margin-right: -10px;
+  color: #f45905;
+}
+ul.comparebooks {
+  background: url(../img/howitworks/ThreeBooks.jpg) no-repeat;
+  height: 100px;
+  width: 863px;
+  padding-top: 439px;
+  list-style: none;
+  margin-top: -69px;
+}
+ul.comparebooks li {
+  float: left;
+}
+ul.comparebooks li.boardback {
+  width: 200px;
+  margin: 0 55px 0 0;
+}
+ul.comparebooks li.hardcover {
+  width: 230px;
+  margin: 0 55px;
+}
+ul.comparebooks li.softcover {
+  width: 200px;
+  margin: 0 0 0 50px;
+}

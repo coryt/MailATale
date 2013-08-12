@@ -1,0 +1,110 @@
+﻿@model HandleErrorInfo
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title | Monthly Children's Book Box</title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/mailatale_favico.ico" />
+    @Styles.Render("~/assets/css/site")
+    @RenderSection("styles", false)
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"> </script>
+        <![endif]-->
+
+    <script type="text/javascript">
+        (function (d, c) {
+            var a, b, g, e;
+            a = d.createElement("script");
+            a.type = "text/javascript";
+            a.async = !0;
+            a.src = ("https:" === d.location.protocol ? "https:" : "http:") + '//api.mixpanel.com/site_media/js/api/mixpanel.2.js';
+            b = d.getElementsByTagName("script")[0];
+            b.parentNode.insertBefore(a, b);
+            c._i = [];
+            c.init = function (a, d, f) {
+                var b = c;
+                "undefined" !== typeof f ? b = c[f] = [] : f = "mixpanel";
+                g = "disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config".split(" ");
+                for (e = 0; e < g.length; e++) (function (a) { b[a] = function () { b.push([a].concat(Array.prototype.slice.call(arguments, 0))); }; })(g[e]);
+                c._i.push([a, d, f]);
+            };
+            window.mixpanel = c;
+        })(document, []);
+        mixpanel.init("270cca308a4e06926eddaeddf7eea59f");
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-24197168-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+<body class="@ViewBag.BaseClass">
+    <div class="wrapper">
+        <div class="container">
+            <header>
+                <p class="logo">@Html.ActionLink("MailaTale", "Index", "Home", new { area = "" }, new { })</p>
+                <nav>
+                    <ul>
+                        @if (!Request.IsAuthenticated)
+                        {
+                            <li>@Html.ActionLink("Join Now", "index", "signup", new { area = "" }, new { })</li>
+                        }
+                        <li>@Html.ActionLink("How It Works", "howitworks", "home", new { area = "" }, new { })</li>
+                        <li>@Html.ActionLink("About", "about", "home", new { area = "" }, new { })</li>
+                        <li>@Html.ActionLink("FAQ", "faq", "home", new { area = "" }, new { })</li>
+                        <li>@Html.ActionLink("Contact", "contact", "home", new { area = "" }, new { })</li>
+                        @{ Html.RenderAction("AccountPanel", "home", new { area = "" }); }
+                    </ul>
+                </nav>
+                <a href="https://www.pinterest.com/mailatale" target="_blank" class="samples pull-right">Blog</a>
+            </header>
+            <div class="row">
+                <div class="span12">
+                    <div class="ribbon">
+                        <h1>Terms</h1>
+                    </div>
+                    <section>
+                        We're sorry, an error occured. Please try again.
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="push">
+            <!--//-->
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <ul class="social">
+                <li><a href="https://www.facebook.com/mailatale" class="facebook" title="Join us on Facebook!">Facebook</a></li>
+                <li><a href="https://www.twitter.com/mailatale" class="twitter" title="Follow us on Twitter!">Twitter</a></li>
+                <li><a href="http://mixpanel.com/f/partner" class="mixpanel">Real Time Web Analytics</a></li>
+            </ul>
+            <ul class="nav">
+                <li>@Html.ActionLink("Terms", "terms", "home", new { area = "" }, new { })</li>
+                <li>@Html.ActionLink("Privacy", "privacy", "home", new { area = "" }, new { })</li>
+                <li>@Html.ActionLink("About", "about", "home", new { area = "" }, new { })</li>
+                <li>@Html.ActionLink("Contact", "contact", "home", new { area = "" }, new { })</li>
+                <li>@Html.ActionLink("FAQ", "faq", "home", new { area = "" }, new { })</li>
+            </ul>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

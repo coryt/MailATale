@@ -1,0 +1,94 @@
+﻿@using MAT.Core.Models.Account
+@model ReaderModel
+
+<div class="control-group">
+    @Html.LabelFor(m => m.Relationship, "What is your {0} to the reader?", new { @class = "control-label" }, "relationship")
+    <div class="controls">
+        @Html.DropDownListFor(m => m.Relationship,
+                                          new SelectList(ViewBag.Relationships as SelectList, "Text", "Text"),
+                                          "Please Select...",
+                                          new { @class = "input-large", data_bind = "options: MAT.Lists.relationships, optionsCaption: 'Please Select...', optionsValue: 'Text', optionsText: 'Text',value: reader.relationship" })
+        @Html.ValidationMessageFor(m => m.Relationship)
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(m => m.Name, "What is the readers {0}?", new { @class = "control-label" }, "first name")
+    <div class="controls">
+        @Html.TextBoxFor(m => m.Name, new { @class = "input-large", data_bind = "value: reader.name" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(m => m.DobDay, "What is the readers {0}?", new { @class = "control-label" }, "birthday")
+    <div class="controls">
+        @Html.DropDownListFor(m => m.DobDay,
+                                              (SelectList)ViewBag.Days,
+                                              "Day",
+                                              new { @class = "input-small", data_bind = "options: MAT.Lists.days, optionsCaption: 'Day', optionsValue: 'Text', optionsText: 'Text', value: reader.dobDay" })
+        @Html.ValidationMessageFor(m => m.DobDay)
+        @Html.DropDownListFor(m => m.DobMonth,
+                                              (SelectList)ViewBag.Months,
+                                              "Month",
+                                              new { @class = "input-small", data_bind = "options: MAT.Lists.months, optionsCaption: 'Month', optionsValue: 'Text', optionsText: 'Text',value: reader.dobMonth" })
+        @Html.ValidationMessageFor(m => m.DobMonth)
+        @Html.DropDownListFor(m => m.DobYear,
+                                              (SelectList)ViewBag.Years,
+                                              "Year",
+                                              new { @class = "input-small", data_bind = "options: MAT.Lists.years, optionsCaption: 'Year', optionsValue: 'Text', optionsText: 'Text',value: reader.dobYear" })
+        @Html.ValidationMessageFor(m => m.DobYear)
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(m => m.Gender, "What is the readers {0}?", new { @class = "control-label" }, "gender")
+    <div class="controls">
+        <label class="controls">
+            @Html.DropDownListFor(m => m.Gender,
+                                                  new SelectList(ViewBag.Genders as SelectList, "Text", "Text"),
+                                                  new { @class = "input-small", data_bind = "value: reader.gender" })
+            @Html.ValidationMessageFor(m => m.Gender)
+        </label>
+    </div>
+</div>
+
+@Html.LabelFor(m => m.ReadingLevel, "What is the child's {0}?", new { @class = "control-label" }, "reading level")
+<section class="preferences">
+    <hr class="down" />
+    <div class="reader-story">
+        <span data-bind="text:reader.storyGenderSalutation"></span>is currently
+                        @Html.DropDownListFor(m => m.GradeLevel,
+                                          new SelectList(ViewBag.GradeLevels as SelectList, "Text", "Text"),
+                                          "Please Select...",
+                                          new { @class = "input-small", data_bind = "options: MAT.Lists.gradeLevels, optionsCaption: 'Please Select...', optionsValue: 'Text', optionsText: reader.getGradeLevelText, value: reader.gradeLevel", style = "width:155px;" })
+        @Html.ValidationMessageFor(m => m.GradeLevel)
+        and is
+                    @Html.DropDownListFor(m => m.ReadingLevel,
+                                          new SelectList(ViewBag.ReadingLevels as SelectList, "Text", "Text"),
+                                          "Please Select...",
+                                          new { @class = "input-small", data_bind = "options: MAT.Lists.readingLevels, optionsCaption: 'Please Select...', optionsValue: 'Text', optionsText: reader.getReadingLevelText, value: reader.readingLevel", style = "width:215px;" })
+        @Html.ValidationMessageFor(m => m.ReadingLevel)
+        .
+                    @{ var questions = (List<PreferenceQuestion>)ViewBag.PreferenceQuestions; }
+        @for (int i = 0; i < Math.Min(Model.PreferenceAnswers.Count, questions.Count); i++)
+        {
+            var question = questions[i];
+            var jsQuestion = "MAT.Lists.preferenceQuestions[" + i + "]";
+            var jsAnswer = "reader.preferenceAnswers[" + i + "]";
+            var koBinding = string.Format("options: {0}.Answers, optionsCaption: 'Please Select...', value: {1}.answer, style: {{ width: {0}.Width }}", jsQuestion, jsAnswer);
+                        
+            <span data-bind="text: MAT.Utility.replaceText(@(jsQuestion).StorySentance, '{GenderSalutation}', reader.storyGenderSalutation())">
+                @((question.StorySentance ?? "").Replace("{GenderSalutation}", "The reader "))
+            </span>
+            @Html.HiddenFor(m => m.PreferenceAnswers[i].QuestionId)
+            @Html.DropDownListFor(
+                            m => m.PreferenceAnswers[i].Answer,
+                            new SelectList(question.Answers),
+                            "Please Select...",
+                            new { data_bind = koBinding, width = question.Width })
+            @Html.ValidationMessageFor(m => m.PreferenceAnswers[i].Answer)
+        }.
+    </div>
+    <hr class="up" />
+</section>

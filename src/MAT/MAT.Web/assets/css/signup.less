@@ -1,0 +1,241 @@
+@import "variables";
+
+
+.modal-backdrop {background: none !important;}
+.howitworks {
+	color: @matblue;
+	position:absolute;
+	bottom: 35px;
+	right: 133px;
+}
+
+.signup {
+	.well {
+		margin-bottom: 0px;
+	}
+
+	p,label {
+		color: @matblue;
+	}
+
+	legend.low,
+	legend {
+		border: 0;
+		font-family: Populaire;
+		color: @matblue;
+		font-size: 38px;
+	}
+	legend.low:first-letter,
+	legend:first-letter {
+		color: @matorange;
+	}
+
+	legend.low {
+		margin-bottom: 0px;
+	}
+
+	h1 {
+		font-family: PopulaireLight;
+		color: @matgold;
+		font-size:32px;
+		letter-spacing: 2px;
+	}
+	h2 {
+		font-family: PopulaireLight;
+		color: @matgold;
+		font-size:28px;
+	}
+	h3 {
+		font-family: PopulaireLight;
+		color: @matblue;
+		font-size:32px;
+	}
+	h4 {
+		color: @matorange;
+		font-size: 14px;
+		margin: 0;
+	}
+
+	ul {
+		list-style: none;
+	}
+
+	.down,
+	.up {
+		height: 7px;
+		border:none !important;
+		margin: 0 0 0 -18px;
+		width: 940px;
+	}
+	.up{
+		background: url(../img/signup/DividerFadeDown.png) no-repeat 0px 0px;
+	
+	}
+
+	.down{
+		background: url(../img/signup/DividerFadeUp.png) no-repeat 0px -5px;
+	}
+}
+
+section.billing-info,
+section.subscription .heading,
+section.subscription .frequency,
+section.subscription .heading-alt,
+section.subscription .frequency-alt,
+section.personalize,
+section.personalize-alt,
+section.subscription,
+section.preferences{
+	background-color: #fff;
+	margin-left: -20px;
+	padding-left: 20px;
+}
+
+section.billing-info,
+section.subscription .heading,
+section.subscription .frequency,
+section.subscription .heading-alt,
+section.subscription .frequency-alt,
+section.personalize-alt,
+section.personalize {
+	background-color: #f8fcfe;
+}
+
+section.personalize-alt,
+section.subscription .heading-alt,
+section.subscription .frequency-alt {
+	background-color:#F8F8F8;
+}
+
+section.preferences {
+	.reader-story {
+		margin: 20px 10px;
+		line-height: 3;
+		font-size: 16px;
+		color: @matblue;
+		select {
+			padding: 4px 1px 4px 0px;
+		}
+	}
+}
+
+@import "subscriptions";
+
+section.subscription {
+	.details {
+		.subscription-info {
+			background-color: @white !important;
+		}
+
+		.separator {
+			height: 342px;
+			background-image: url(../img/signup/Dash.jpg);
+			background-repeat: repeat-y;
+			background-color: @white !important;
+		}
+	}
+}
+
+.billing-info {
+	height: 60px;
+	padding: 10px 0 0;
+	p {
+		color: @matorange;
+	}
+	span {
+		color: @gray;
+	}
+}
+
+#Refferal {
+    margin-bottom: 0;
+}
+
+.btn-basic:hover,
+.btn-order:hover,
+.btn-plus:hover {
+	background-color: inherit;
+	transition: none;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+}
+
+.btn-order,
+.btn-basic,
+.btn-plus {
+	box-shadow: none;
+	border: none;
+}
+
+.btn-plus:hover,
+.btn-basic:hover { 
+	background-position: -16px -4px;
+}
+
+.btn-basic {
+	background: url(../img/signup/BasicBTN.png) no-repeat -16px -4px;
+	width: 218px;
+	height: 33px;
+}
+
+.btn-plus {
+	background: url(../img/signup/PlusBTN.png) no-repeat -16px -4px;
+	width: 218px;
+	height: 33px;
+}
+
+.btn-order:hover { 
+	background-position: -71px -3px;
+}
+
+.btn-order {
+	background: url(../img/signup/PlaceOrder.png) no-repeat -71px -3px;
+	width: 288px;
+	height: 33px;
+}
+
+.summary {
+	margin-top: 20px;
+
+	.order-summary {
+		color: @matblue;
+		font-size: 16px;
+		ul {
+			margin-top: 10px;
+		}
+		.subtotal,
+		.tax,
+		.shipping,
+		.total {
+			margin: 5px 0 10px 0;
+			padding: 5px 0;
+		}
+
+		.total {
+			border-top: 1px solid @gray;
+			margin-bottom: 20px;
+			font-weight: bold;
+		}
+	}
+}
+
+.continue-multireader {
+	height: 40px;
+	margin: 0 -20px;
+	padding: 20px 0 0 20px;
+	background-color: #fff;
+	color: @matorange;
+
+}
+
+.section-error {
+	height: 40px;
+	margin: 0 -20px;
+	padding: 20px 0 0 0;
+	background-color: #fff;
+	color: #663366;
+	font-family: Populaire;
+	font-size: 36px;
+	text-align: center;
+}

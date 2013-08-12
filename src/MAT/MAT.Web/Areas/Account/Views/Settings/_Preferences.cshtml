@@ -1,0 +1,36 @@
+﻿@using MAT.Core.Models.Subscription
+@model IEnumerable<MAT.Core.Models.Subscription.Reader>
+@using (Ajax.BeginForm("updatepreferences", "settings",
+                       new AjaxOptions
+                           {
+                               UpdateTargetId = "result",
+                               InsertionMode = InsertionMode.Replace,
+                               HttpMethod = "Post",
+                               OnSuccess = "ClearValidationErrors('#update-preference', xhr)",
+                               OnFailure = "ReloadForm('#update-preference', xhr)"
+                           },
+                       new {@id = "update-preference"}))
+{
+    <div class="row">
+        <div class="span8">
+            <div id="result"></div>
+            @foreach (Reader reader in Model)
+            {
+                @reader.Name
+                @reader.Birthdate
+                @reader.ReadingStyle
+                @reader.ReadingLevel
+
+                <ul>
+                    @foreach (var answer in reader.PreferenceAnswers)
+                    {
+                        <li>
+                            @answer.Key.Question
+                            @answer.Value
+                        </li>
+                    }
+                </ul>
+            }
+        </div>
+    </div>
+}

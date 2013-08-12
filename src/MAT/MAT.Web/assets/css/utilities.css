@@ -1,0 +1,58 @@
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.invisible {
+  visibility: hidden;
+}
+.affix {
+  position: fixed;
+}
+.clear-fix {
+  clear: both;
+}
+.container {
+  overflow: hidden;
+}
+.input-validation-error {
+  border: 1px solid #ff0000;
+}
+.input-validation-valid {
+  /* Optional: you can set whatever style you want */
+}
+.field-validation-error {
+  color: #ff0000;
+}
+.field-validation-valid {
+  display: none;
+}
+.validation-summary-errors {
+  font-weight: bold;
+  color: #ff0000;
+}
+.validation-summary-valid {
+  display: none;
+}
+.blue {
+  color: $matblue !important;
+}
+.gold {
+  color: $matgold !important;
+}
+.green {
+  color: $matlightgreen !important;
+}
+.orange {
+  color: $matorange !important;
+}
+.uppercase {
+  text-transform: uppercase;
+}
