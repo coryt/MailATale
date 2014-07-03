@@ -28,7 +28,7 @@ namespace MAT.Web.Infrastructure.IoC
 
         private static SiteConfig GetSiteConfig(IKernel kernel)
         {
-            var logger = LogManager.GetCurrentClassLogger();
+            var logger = LogManager.GetLogger(typeof(RavenDBInstaller).Name);
             var documentStore = kernel.Resolve<IDocumentStore>();
 
             SiteConfig config;

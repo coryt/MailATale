@@ -2,7 +2,6 @@ using System;
 using MAT.Core.Models.Account;
 using MAT.Core.Models.SignUp;
 using MAT.Core.PaymentProcessor;
-using MAT.Proxy.PaymentProcessor.BeanStream;
 using Raven.Imports.Newtonsoft.Json;
 
 namespace MAT.Core.Models
@@ -36,9 +35,16 @@ namespace MAT.Core.Models
         public Address ShippingAddress { get; set; }
         public string PaymentMessage { get; set; }
         public string PaymentResult { get; set; }
-        public TransactionResponse TransactionResponse { get; set; }
+        public PaymentResults TransactionResponse { get; set; }
         public decimal Discount { get; set; }
         protected abstract void CalculateOrderTax();
-        public abstract void ProcessPayment(IPaymentProcessor paymentProcessor);
+
+        public virtual void ProcessPayment(IPaymentProcessor paymentProcessor)
+        {
+            var response = paymentProcessor.ProcessPayment(this);
+            TransactionResponse = response.Result;
+            PaymentResult = response.Result.ToString();
+            PaymentMessage = response.Message;
+        }
     }
 }

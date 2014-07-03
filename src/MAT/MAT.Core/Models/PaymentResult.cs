@@ -1,51 +1,44 @@
-using MAT.Proxy.PaymentProcessor.BeanStream;
 
 namespace MAT.Core.Models
 {
     public class PaymentResponse
     {
         public PaymentResults Result { get; set; }
-        public TransactionResponse Response { get; set; }
         public string Message { get; set; }
 
-        public static PaymentResponse ExternalError(TransactionResponse response)
+        public static PaymentResponse Denied()
         {
-            return new PaymentResponse() { Result = PaymentResults.ExternalError, Message = "There was a system error. Please try again later.", Response = response };
+            return new PaymentResponse() { Result = PaymentResults.Denied, Message = "Your card was denied. Please review your payment information and address." };
         }
 
-        public static PaymentResponse Denied(TransactionResponse response)
+        public static PaymentResponse InvalidInput()
         {
-            return new PaymentResponse() { Result = PaymentResults.Denied, Message = "Your card was denied. Please review your payment information and address.", Response = response };
-        }
-
-        public static PaymentResponse Success(TransactionResponse response)
-        {
-            return new PaymentResponse() { Result = PaymentResults.Approved, Response = response };
-        }
-
-        public static PaymentResponse Error(TransactionResponse response)
-        {
-            return new PaymentResponse() { Result = PaymentResults.InternalError, Message = response.MessageText, Response = response };
-        }
-
-        public static PaymentResponse InvalidInput(string message)
-        {
-            return new PaymentResponse() { Result = PaymentResults.InvalidInput, Message = message, Response = null };
-        }
-
-        public static PaymentResponse InvalidInput(TransactionResponse transactionResponse)
-        {
-            return new PaymentResponse() { Result = PaymentResults.InvalidInput, Message = string.Format("Check the following fields for errors: {0}", transactionResponse.ErrorFields), Response = null };
+            return new PaymentResponse() { Result = PaymentResults.InvalidInput, Message = string.Format("Check the following fields for errors.") };
         }
 
         public static PaymentResponse Success()
         {
-            return new PaymentResponse() { Result = PaymentResults.Approved, Response = null };
+            return new PaymentResponse() { Result = PaymentResults.Approved };
         }
 
-        public static PaymentResponse Error(string response)
+        public static PaymentResponse Error()
         {
-            return new PaymentResponse() { Result = PaymentResults.InternalError, Message = response, Response = null };
+            return new PaymentResponse() { Result = PaymentResults.InternalError };
+        }
+
+        public static PaymentResponse CreateResponse(string transactionResponse)
+        {
+            switch (transactionResponse)
+            {
+                case "Success":
+                    return Success();
+                case "Denied":
+                    return Denied();
+                case "InvalidInput":
+                    return InvalidInput();
+                default:
+                    return Error();
+            }
         }
     }
 

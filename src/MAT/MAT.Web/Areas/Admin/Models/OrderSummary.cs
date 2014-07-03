@@ -1,8 +1,5 @@
 ﻿using System;
 using MAT.Core.Models;
-using MAT.Core.Models.SignUp;
-using MAT.Core.Models.Account;
-using MAT.Proxy.PaymentProcessor.BeanStream;
 
 namespace MAT.Web.Areas.Admin.Models
 {

@@ -116,7 +116,7 @@ namespace MAT.Core.Mailers
                      <td style=""padding-left:10px;padding-top:5px"" width=""50%"" valign=""top"">{4}</td>
                  </tr>
                 
-             </tbody></table>", order.DateCreated.ToString(), order.Id, order.TransactionResponse.AuthCode, order.Total, order.CreditCardName);
+             </tbody></table>", order.DateCreated.ToString(), order.Id, order.TransactionResponse, order.Total, order.CreditCardName);
 
             var billingAddressTable =
                 string.Format(@"<table style=""width:100%;border-collapse:collapse""><tbody><tr><td><font size=""2"" face=""Arial, Arial, sans-serif"">

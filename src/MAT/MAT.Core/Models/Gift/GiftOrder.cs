@@ -7,7 +7,6 @@ using MAT.Core.Models.SignUp;
 using MAT.Core.Models.Subscription;
 using MAT.Core.PaymentProcessor;
 using MAT.Core.Services;
-using Raven.Imports.Newtonsoft.Json;
 
 namespace MAT.Core.Models.Gift
 {
@@ -61,13 +60,9 @@ namespace MAT.Core.Models.Gift
 
         public override void ProcessPayment(IPaymentProcessor paymentProcessor)
         {
-            var response = paymentProcessor.ProcessPayment(this);
-            TransactionResponse = response.Response;
-            PaymentResult = response.Result.ToString();
-            PaymentMessage = response.Message;
+            base.ProcessPayment(paymentProcessor);
 
-            if (response.Result != PaymentResults.Approved) return;
-
+            if (TransactionResponse != PaymentResults.Approved) return;
             OrderStatus = OrderStatuses.Paid;
         }
     }

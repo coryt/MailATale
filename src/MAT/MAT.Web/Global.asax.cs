@@ -37,7 +37,7 @@ namespace MAT.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Container = WindsorConfig.ConfigureWindsor(GlobalConfiguration.Configuration);
 
-            var logger = LogManager.GetCurrentClassLogger();
+            var logger = LogManager.GetLogger(GetType().Name);
 
             var docStore = Container.Resolve<IDocumentStore>();
             
@@ -56,8 +56,8 @@ namespace MAT.Web
             }
             TaskExecutor.DocumentStore = docStore;
 
-            var task = Container.Resolve<GiftEmailerTask>();
-            TaskExecutor.ExecuteTask(task);
+            var emailerTask = Container.Resolve<GiftEmailerTask>();
+            TaskExecutor.ExecuteTask(emailerTask);
 
             logger.Info(Container.Resolve<SiteConfig>().ToString());
             logger.Info("Started MAT Website");

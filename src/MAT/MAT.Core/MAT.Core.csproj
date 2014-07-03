@@ -99,7 +99,7 @@
       <HintPath>..\packages\Newtonsoft.Json.4.5.9\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NLog">
-      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+      <HintPath>..\packages\NLog.2.1.0\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="PowerCollections">
       <HintPath>..\packages\RavenDB.Database.1.2.2085-Unstable\lib\net40\PowerCollections.dll</HintPath>
@@ -249,6 +249,7 @@
     <Compile Include="Models\Subscription\UserSubscription.cs" />
     <Compile Include="Models\Enumerations\SubscriptionStatus.cs" />
     <Compile Include="PaymentProcessor\BeanStream\BeanStreamPaymentProcessor.cs" />
+    <Compile Include="PaymentProcessor\BeanStream\ISomePaymentApi.cs" />
     <Compile Include="PaymentProcessor\IPaymentProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routing\LowercaseRoute.cs" />

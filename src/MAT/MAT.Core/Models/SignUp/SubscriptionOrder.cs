@@ -74,21 +74,14 @@ namespace MAT.Core.Models.SignUp
 
         public override void ProcessPayment(IPaymentProcessor paymentProcessor)
         {
-            var response = paymentProcessor.ProcessPayment(this);
-            TransactionResponse = response.Response;
-            PaymentResult = response.Result.ToString();
-            PaymentMessage = response.Message;
+            base.ProcessPayment(paymentProcessor);
 
-            if (response.Result != PaymentResults.Approved) return;
+            if (TransactionResponse != PaymentResults.Approved) return;
 
             OrderStatus = OrderStatuses.Paid;
             foreach (var subscription in Subscriptions)
             {
-                DateTime orderDate;
-                if (!DateTime.TryParse(response.Response.Date, out orderDate))
-                    orderDate = DateTime.Now;
-
-                subscription.LastBilledOn = orderDate;
+                subscription.LastBilledOn = DateTime.Today;
                 subscription.SubscriptionStatus = SubscriptionStatus.Active;
             }
         }
